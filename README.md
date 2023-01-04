@@ -8,7 +8,11 @@ My repository for BYUI CSE210 class projects
 #### Winter 2023
 
 ### Topics
+<<<<<<< HEAD
 `byui` `cse110` `school` `winter` `school-project` `school-assignments` `school-education` `c#`
+=======
+`byui` `cse210` `school` `winter` `school-project` `school-assignments` `school-education` `c#` `byu-idaho`
+>>>>>>> 41e9b7f (update readme file)
 
 ### 🎓 Academic Honesty
 
@@ -39,9 +43,11 @@ This repository contains the starter code for many different projects. They are 
 ### 💻 Technology
 - This course is using 
 
-<a href="https://www.python.org/" title="vscode"><img src="https://github.com/get-icon/geticon/raw/master/icons/python.svg" alt="python" width="31px" height="31px"></a>
 <a href="https://code.visualstudio.com/" title="vscode"><img src="https://github.com/get-icon/geticon/raw/master/icons/visual-studio-code.svg" alt="vscode" width="31px" height="31px"></a>
-<a href="https://jupyter.org/" title="vscode"><img src="https://github.com/get-icon/geticon/raw/master/icons/jupyter.svg" alt="jupyter" width="31px" height="31px"></a>
+<a href="https://git-scm.com/" title="git"><img src="https://github.com/get-icon/geticon/raw/master/icons/git-icon.svg" alt="git" width="31px" height="31px"></a>
+<a href="https://learn.microsoft.com/en-us/dotnet/csharp/" title="c-sharp"><img src="https://github.com/get-icon/geticon/raw/master/icons/c-sharp.svg" alt="c-sharp" width="31px" height="31px"></a>
+<a href="https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-7?WT.mc_id=dotnet-35129-website" title="dotnet"><img src="https://github.com/get-icon/geticon/raw/master/icons/dotnet.svg" alt="dotnet" width="31px" height="31px"></a>
+<a href="https://github.com/" title="github"><img src="https://github.com/get-icon/geticon/raw/master/icons/github-icon.svg" alt="github" width="31px" height="31px"></a>
 
 ---
 
