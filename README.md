@@ -4,8 +4,11 @@
 
 My repository for BYUI CSE210 class projects
 
+## CSE 210 - Programming with Classes
+#### Winter 2023
+
 ### Topics
-`byui` `cse110` `school` `spring` `school-project` `school-assignments` `school-education` `python3`
+`byui` `cse110` `school` `spring` `school-project` `school-assignments` `school-education` `c#`
 
 ### 🎓 Academic Honesty
 
@@ -43,5 +46,14 @@ This repository contains the starter code for many different projects. They are 
 ---
 
 ### 📚 References
+
+---
+
+### :warning: Licensing
+
+This project is licensed under the MIT license.
+
+-   [LICENSE](LICENSE)
+
 
 
