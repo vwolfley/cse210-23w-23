@@ -1,6 +1,6 @@
 # cse210-23w-23
 
-[![GitHub license](https://img.shields.io/github/license/vwolfley/cse210-w23?style=flat-square)](https://github.com/vwolfley/cse210-23w-23/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/vwolfley/cse210-23w-23?style=flat-square)](https://github.com/vwolfley/cse210-23w-23/blob/main/LICENSE)
 
 My repository for BYUI CSE210 class projects
 
