@@ -8,11 +8,9 @@ My repository for BYUI CSE210 class projects
 #### Winter 2023
 
 ### Topics
-<<<<<<< HEAD
-`byui` `cse110` `school` `winter` `school-project` `school-assignments` `school-education` `c#`
-=======
-`byui` `cse210` `school` `winter` `school-project` `school-assignments` `school-education` `c#` `byu-idaho`
->>>>>>> 41e9b7f (update readme file)
+`byui` `cse210` `school` `winter` `school-project` `school-assignments` `school-education` `c#` `c-sharp` `byu-idaho`
+
+---
 
 ### 🎓 Academic Honesty
 
