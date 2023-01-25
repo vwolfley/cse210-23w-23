@@ -33,7 +33,7 @@ class Program
                     entry._dateTime = dateInfo;
                     entry._journalPrompt = prompt;
 
-                    Console.Write(":>> ");
+                    Console.Write(">>> ");
                     string userEntry = Console.ReadLine();
                     entry._journalEntry = userEntry;
 
@@ -48,14 +48,12 @@ class Program
                     break;
                 case 3:
                     // Load
-
+                    journal.LoadJournalFile();
                     // Console.WriteLine("Success Choice 3!");
                     break;
                 case 4:
                     // Save
-                    CreateJournalFile();
-                    // string AddEntry = journal.Display();
-                    // AddJournalEntry(AddEntry);
+                    journal.CreateJournalFile();
                     // Console.WriteLine("Success Choice 4!");
                     break;
                 case 5:
@@ -154,18 +152,6 @@ What would you like to do? ";
         // Displays Saturday, March 01, 2008 7:00:00 AM
         return currentDateTime;
     }
-
-    static void CreateJournalFile()
-    // Method to check if txt file is created if not create one
-    {
-        string MyJournalFile = "MyJournal.txt";
-
-        if (!File.Exists(MyJournalFile))
-        {
-            File.CreateText(MyJournalFile);
-        }
-    }
-
     static void AddJournalEntry()
     // Method to add entry to text file
     {

@@ -3,24 +3,68 @@ using System;
 
 public class Journal
 {
-    // The C# convention is to start member variables with an underscore _
+    // variables
     public List<JournalEntry> _journal = new List<JournalEntry>();
+    private string fileName = "MyJournal.txt";
 
 
-    // A special method, called a constructor that is invoked using the  
-    // new keyword followed by the class name and parentheses.
+    // method
     public Journal()
     {
     }
 
-    // A method that displays the person's full name as used in eastern 
-    // countries or <family name, given name>.
+    // A method that displays each journal entry
     public void Display()
     {
         Console.WriteLine("\n************** Journal Entries **************");
-        foreach (JournalEntry journal in _journal)
+        foreach (JournalEntry journalEntry in _journal)
         {
-            journal.Display();
+            journalEntry.Display();
+        }
+    }
+
+    public void CreateJournalFile()
+    // Method to check if txt file is created if not create one
+    {
+        // string fileName = "MyJournal.txt";
+
+        if (!File.Exists(fileName))
+        {
+            using (StreamWriter outputFile = new StreamWriter(fileName))
+            {
+                File.CreateText(fileName);
+                outputFile.WriteLine("************** Journal Entries **************\n");
+                foreach (JournalEntry journalEntry in _journal)
+                {
+                    outputFile.WriteLine($"{journalEntry._dateTime}");
+                    outputFile.WriteLine($"Prompt: {journalEntry._journalPrompt}");
+                    outputFile.WriteLine($"Entry: {journalEntry._journalEntry}\n");
+                }
+            }
+            Console.Write("\n*** MyJournal.txt has been created! ***\n");
+        }
+        else
+        {
+            Console.Write("\n*** MyJournal.txt already exits. ***\n");
+            using (StreamWriter outputFile = new StreamWriter(fileName, append: true))
+            {
+                foreach (JournalEntry journalEntry in _journal)
+                {
+                    outputFile.WriteLine($"{journalEntry._dateTime}");
+                    outputFile.WriteLine($"Prompt: {journalEntry._journalPrompt}");
+                    outputFile.WriteLine($"Entry: {journalEntry._journalEntry}\n");
+                }
+            }
+        }
+    }
+
+    public void LoadJournalFile()
+    // Method to check if txt file is created and load it
+    {
+         if (File.Exists(fileName))
+        {
+            string text = File.ReadAllText(fileName);
+            Console.WriteLine($"\n{text}");
         }
     }
 
