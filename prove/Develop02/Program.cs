@@ -47,12 +47,12 @@ class Program
                     // Console.WriteLine("Success Choice 2!");
                     break;
                 case 3:
-                    // Load
+                    // Load text file
                     journal.LoadJournalFile();
                     // Console.WriteLine("Success Choice 3!");
                     break;
                 case 4:
-                    // Save
+                    // Save to text file
                     journal.CreateJournalFile();
                     // Console.WriteLine("Success Choice 4!");
                     break;

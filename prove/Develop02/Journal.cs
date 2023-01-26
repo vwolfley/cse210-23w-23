@@ -6,6 +6,7 @@ public class Journal
     // variables
     public List<JournalEntry> _journal = new List<JournalEntry>();
     private string fileName = "MyJournal.txt";
+    private string userFileName;
 
 
     // method
@@ -26,13 +27,14 @@ public class Journal
     public void CreateJournalFile()
     // Method to check if txt file is created if not create one
     {
-        // string fileName = "MyJournal.txt";
+        Console.Write("What your file name? ");
+        string userFileName = Console.ReadLine();
 
-        if (!File.Exists(fileName))
+        if (!File.Exists(userFileName))
         {
-            using (StreamWriter outputFile = new StreamWriter(fileName))
+            using (StreamWriter outputFile = new StreamWriter(userFileName))
             {
-                File.CreateText(fileName);
+                File.CreateText(userFileName);
                 outputFile.WriteLine("************** Journal Entries **************\n");
                 foreach (JournalEntry journalEntry in _journal)
                 {
@@ -46,7 +48,7 @@ public class Journal
         else
         {
             Console.Write("\n*** MyJournal.txt already exits. ***\n");
-            using (StreamWriter outputFile = new StreamWriter(fileName, append: true))
+            using (StreamWriter outputFile = new StreamWriter(userFileName, append: true))
             {
                 foreach (JournalEntry journalEntry in _journal)
                 {
@@ -61,9 +63,12 @@ public class Journal
     public void LoadJournalFile()
     // Method to check if txt file is created and load it
     {
-         if (File.Exists(fileName))
+        Console.Write("What your file name? ");
+        string userFileName = Console.ReadLine();
+
+        if (File.Exists(userFileName))
         {
-            string text = File.ReadAllText(fileName);
+            string text = File.ReadAllText(userFileName);
             Console.WriteLine($"\n{text}");
         }
     }

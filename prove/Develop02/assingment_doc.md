@@ -47,7 +47,7 @@ This program must contain the following features:
 In addition, your program must:
 
 1. Contain classes for the major components in the program.
-2. ontain at least two classes in addition to the Program class.
+2. Contain at least two classes in addition to the Program class.
 3. Demonstrate the principle of abstraction by using member variables and methods appropriately.
 
 #### Simplifications
