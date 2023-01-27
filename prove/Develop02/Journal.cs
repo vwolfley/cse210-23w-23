@@ -6,7 +6,7 @@ public class Journal
     // variables
     public List<JournalEntry> _journal = new List<JournalEntry>();
     // private string fileName = "MyJournal.txt";
-    private string userFileName;
+    private string _userFileName;
 
 
     // method
@@ -29,25 +29,25 @@ public class Journal
     {
         Console.Write("What your file name? ");
         string userInput = Console.ReadLine();
-        userFileName = userInput + ".txt";
+        _userFileName = userInput + ".txt";
 
-        if (!File.Exists(userFileName))
+        if (!File.Exists(_userFileName))
         {
-            File.CreateText(userFileName);
-            Console.Write($"\n*** {userFileName} has been created! ***\n");
+            File.CreateText(_userFileName);
+            Console.Write($"\n*** {_userFileName} has been created! ***\n");
             Console.Write("***  Your journal entries have been saved. ***\n");
-            SaveJournalFile(userFileName);
+            SaveJournalFile(_userFileName);
         }
         else
         {
-            Console.Write($"\n*** {userFileName} already exits. ***\n");
+            Console.Write($"\n*** {_userFileName} already exits. ***\n");
             Console.Write("***  Your journal entries have been added. ***\n");
-            AppendJournalFile(userFileName);
+            AppendJournalFile(_userFileName);
         }
     }
-    public void SaveJournalFile(string userFileName)
+    public void SaveJournalFile(string _userFileName)
     {
-        using (StreamWriter outputFile = new StreamWriter(userFileName))
+        using (StreamWriter outputFile = new StreamWriter(_userFileName))
         {
             outputFile.WriteLine("************** Journal Entries **************\n");
 
@@ -61,9 +61,9 @@ public class Journal
 
     }
 
-    public void AppendJournalFile(string userFileName)
+    public void AppendJournalFile(string _userFileName)
     {
-        using (StreamWriter outputFile = new StreamWriter(userFileName, append: true))
+        using (StreamWriter outputFile = new StreamWriter(_userFileName, append: true))
         {
             foreach (JournalEntry journalEntry in _journal)
             {
@@ -80,14 +80,14 @@ public class Journal
     {
         Console.Write("What your file name? ");
         string userInput = Console.ReadLine();
-        userFileName = userInput + ".txt";
+        _userFileName = userInput + ".txt";
 
-        if (File.Exists(userFileName))
+        if (File.Exists(_userFileName))
         {
-            string text = File.ReadAllText(userFileName);
+            string text = File.ReadAllText(_userFileName);
             Console.WriteLine($"\n{text}");
 
-            string[] logFile = File.ReadAllLines(userFileName);
+            string[] logFile = File.ReadAllLines(_userFileName);
 
             foreach (var value in logFile)
             {
@@ -96,7 +96,7 @@ public class Journal
 
             // _journal = new List<JournalEntry>(logFile);
 
-            // List<JournalEntry> _journal = File.ReadAllLines(userFileName).ToList();
+            // List<JournalEntry> _journal = File.ReadAllLines(_userFileName).ToList();
 
         }
     }
