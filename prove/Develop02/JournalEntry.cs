@@ -4,10 +4,11 @@ using System;
 public class JournalEntry
 {
     // The C# convention is to start member variables with an underscore _
-    public int _entryNumber = 0;
+    public string _entryNumber = "";
     public string _dateTime = "";
     public string _journalPrompt = "";
     public string _journalEntry = "";
+    public string _journalFile = "";
 
 
     // A special method, called a constructor that is invoked using the  
@@ -19,8 +20,8 @@ public class JournalEntry
     // A method that displays 
     public void Display()
     {
-        
-        Console.WriteLine($"\n{_dateTime}");
+        Console.WriteLine($"\n#: {_entryNumber}");
+        Console.WriteLine($"Date: {_dateTime}");
         Console.WriteLine($"Prompt: {_journalPrompt}");
         Console.WriteLine($"Entry: {_journalEntry}");
     }

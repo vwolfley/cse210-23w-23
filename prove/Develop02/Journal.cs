@@ -1,5 +1,5 @@
 using System;
-
+using System.Text.Json;
 
 public class Journal
 {
@@ -22,6 +22,7 @@ public class Journal
         {
             journalEntry.Display();
         }
+        Console.WriteLine("\n******************** End ********************");
     }
 
     public void CreateJournalFile()
@@ -46,30 +47,25 @@ public class Journal
         }
     }
     public void SaveJournalFile(string _userFileName)
+    // Method to save journal to txt file 
     {
         using (StreamWriter outputFile = new StreamWriter(_userFileName))
         {
-            outputFile.WriteLine("************** Journal Entries **************\n");
-
             foreach (JournalEntry journalEntry in _journal)
             {
-                outputFile.WriteLine($"{journalEntry._dateTime}");
-                outputFile.WriteLine($"Prompt: {journalEntry._journalPrompt}");
-                outputFile.WriteLine($"Entry: {journalEntry._journalEntry}\n");
+                outputFile.WriteLine($"{journalEntry._entryNumber}; {journalEntry._dateTime}; {journalEntry._journalPrompt}; {journalEntry._journalEntry}");
             }
         }
-
     }
 
     public void AppendJournalFile(string _userFileName)
+    // Method to save a new entry to journal txt file 
     {
         using (StreamWriter outputFile = new StreamWriter(_userFileName, append: true))
         {
             foreach (JournalEntry journalEntry in _journal)
             {
-                outputFile.WriteLine($"{journalEntry._dateTime}");
-                outputFile.WriteLine($"Prompt: {journalEntry._journalPrompt}");
-                outputFile.WriteLine($"Entry: {journalEntry._journalEntry}\n");
+                outputFile.WriteLine($"{journalEntry._entryNumber}; {journalEntry._dateTime}; {journalEntry._journalPrompt}; {journalEntry._journalEntry}");
             }
         }
     }
@@ -84,21 +80,28 @@ public class Journal
 
         if (File.Exists(_userFileName))
         {
-            string text = File.ReadAllText(_userFileName);
-            Console.WriteLine($"\n{text}");
-
-            string[] logFile = File.ReadAllLines(_userFileName);
-
-            foreach (var value in logFile)
+            List<string> readText = File.ReadAllLines(_userFileName).Where(arg => !string.IsNullOrWhiteSpace(arg)).ToList();
+            foreach (string line in readText)
             {
-                Console.WriteLine(value);
+                string[] entries = line.Split("; ");
+
+                JournalEntry entry = new JournalEntry();
+
+                entry._entryNumber = entries[0];
+                entry._dateTime = entries[1];
+                entry._journalPrompt = entries[2];
+                entry._journalEntry = entries[3];
+
+                _journal.Add(entry);
             }
-
-            // _journal = new List<JournalEntry>(logFile);
-
-            // List<JournalEntry> _journal = File.ReadAllLines(_userFileName).ToList();
-
         }
+    }
+
+
+    public void CreateJSON()
+    {
+        // var outputString = JsonSerializer.Serialize<Journal>(_journal);
+        // File.WriteAllText("MyFile.json", outputString);
     }
 
 }

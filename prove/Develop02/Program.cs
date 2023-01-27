@@ -23,10 +23,12 @@ class Program
             {
                 case 1:
                     // Write Journal Entry
+                    string entryId = GetEntryId();
                     string dateInfo = GetDateTime();
                     string prompt = jp.GetPrompt();
 
                     JournalEntry entry = new JournalEntry();
+                    entry._entryNumber = entryId;
                     entry._dateTime = dateInfo;
                     entry._journalPrompt = prompt;
 
@@ -111,6 +113,14 @@ What would you like to do? ";
     {
         string MyJournalFile = "MyJournal.txt";
         File.AppendAllText(MyJournalFile, "");
+    }
+
+    static string GetEntryId()
+    {
+        Guid entryuuid = Guid.NewGuid();
+        string entryuuidAsString = entryuuid.ToString();
+
+        return entryuuidAsString;
     }
 
 
