@@ -34,5 +34,4 @@ Abstraction is used to hide background details or any unnecessary implementation
                 journal.Display();
             }
         }
-
     }
