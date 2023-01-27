@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 public class Journal
 {
@@ -38,6 +39,7 @@ public class Journal
             Console.Write($"\n*** {_userFileName} has been created! ***\n");
             Console.Write("***  Your journal entries have been saved. ***\n");
             SaveJournalFile(_userFileName);
+            CreateJSON(userInput);
         }
         else
         {
@@ -98,10 +100,25 @@ public class Journal
     }
 
 
-    public void CreateJSON()
+    public void CreateJSON(string userInput)
+    // Method to create a JSON file 
     {
-        // var outputString = JsonSerializer.Serialize<Journal>(_journal);
-        // File.WriteAllText("MyFile.json", outputString);
+        string fileName = userInput + ".json";
+        List<JsonItem> _data = new List<JsonItem>();
+
+        foreach (JournalEntry journalEntry in _journal)
+        {
+            _data.Add(new JsonItem()
+            {
+                ID = journalEntry._entryNumber,
+                Date = journalEntry._dateTime,
+                Prompt = journalEntry._journalPrompt,
+                Entry = journalEntry._journalEntry
+            });
+        }
+
+        string json = JsonSerializer.Serialize(_data);
+        File.WriteAllText(fileName, json);
     }
 
 }
