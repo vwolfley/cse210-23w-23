@@ -3,11 +3,13 @@ using System;
 // A code template for the category of things known as 
 public class Scripture
 {
-    // variables
+    // Variables
     public List<Scripture> _scripture = new List<Scripture>();
     private string _fileName = "DataText.txt";
     private string _key;
     private string _text;
+    public int _index;
+    public string _scriptureText;
 
 
     // Methods
@@ -35,10 +37,22 @@ public class Scripture
             item.ShowScripture();
         }
     }
-
     public void ShowScripture()
     {
         Console.WriteLine($"\n{_text}");
+    }
+
+    public int GetRandomIndex()
+    {
+        var random = new Random();
+        _index = random.Next(_scripture.Count);
+        return _index;
+    }
+
+    public string RandomScripture()
+    {
+        _index = GetRandomIndex();
+       return _scriptureText = _scripture[_index]._text;
     }
     public void HideWords()
     {

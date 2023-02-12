@@ -3,7 +3,7 @@ using System;
 // A code template for the category of things known as 
 public class Reference
 {
-    // variables
+    // Variables
     public List<Reference> _reference = new List<Reference>();
     private string _fileName = "DataText.txt";
     private string _key;
@@ -49,6 +49,23 @@ public class Reference
             }
         }
     }
+    public string GetReference(Scripture scripture)
+    {
+        var index = scripture._index;
+
+        var refi = _reference[index];
+        string ref1;
+        if (refi._verseEnd.Equals(0))
+        {
+            return ref1 = ($"\n{refi._book} {refi._chapter}:{refi._verseStart}");
+            
+        }
+        else
+        {
+            return ref1 = $"\n{refi._book} {refi._chapter}:{refi._verseStart}-{refi._verseEnd}";
+        }
+    }
+
 
     public void ReferenceOne()
     {
