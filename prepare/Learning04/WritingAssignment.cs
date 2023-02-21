@@ -6,6 +6,12 @@ public class WritingAssignment : Assignment
     private string _title = "";
 
     // Constructors
+    public WritingAssignment(string studentName, string topic, string title)
+        : base(studentName, topic)
+    {
+        // Here we set any variables specific to the WritingAssignment class
+        _title = title;
+    }
     public string GetTitle()
     {
         return _title;

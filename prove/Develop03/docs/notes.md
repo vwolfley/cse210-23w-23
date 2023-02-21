@@ -1,0 +1,1 @@
+A solid class design, although it does need some work. You should be defining access modifiers for methods as well, not just types! Method parameters also need types, as that will impact how the program is implemented.

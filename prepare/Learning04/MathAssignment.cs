@@ -24,6 +24,14 @@ public class MathAssignment : Assignment
         _problems = problems;
     }
 
+    public MathAssignment(string studentName, string topic, string textBookSection, string problems)
+        : base(studentName, topic)
+    {
+        // Here we set the MathAssignment specific variables
+        _textBookSection = textBookSection;
+        _problems = problems;
+    }
+
 
     // Methods
     public string GetHomeworkList()

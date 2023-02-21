@@ -3,10 +3,15 @@ using System;
 public class Assignment
 {
     // Attributes 
-    protected string _studentName = "";
+    private string _studentName = "";
     private string _topic = "";
 
     // Constructors
+    public Assignment(string studentName, string topic)
+    {
+        _studentName = studentName;
+        _topic = topic;
+    }
     public string GetStudentName()
     {
         return _studentName;
