@@ -7,6 +7,10 @@ public class Assignment
     private string _topic = "";
 
     // Constructors
+    public Assignment()
+    {
+
+    }
     public Assignment(string studentName, string topic)
     {
         _studentName = studentName;

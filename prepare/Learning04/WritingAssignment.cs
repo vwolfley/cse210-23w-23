@@ -3,9 +3,13 @@ using System;
 public class WritingAssignment : Assignment
 {
     // Attributes 
-    private string _title = "";
+    private string _title;
 
     // Constructors
+    public WritingAssignment() 
+    {
+        
+    }
     public WritingAssignment(string studentName, string topic, string title)
         : base(studentName, topic)
     {
@@ -25,7 +29,8 @@ public class WritingAssignment : Assignment
     // Methods
     public string GetWritingInformation()
     {
-        return $"{_title} by {_studentName}";
+        string studentName = GetStudentName();
+        return $"{_title} by {studentName}";
     }
 
 

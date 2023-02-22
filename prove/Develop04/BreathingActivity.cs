@@ -9,9 +9,9 @@ public class BreathingActivity : Activity
     // Constructors
     public BreathingActivity(string activityName, string activityDescription, int duration) : base(activityName, activityDescription, duration)
     {
-        _activityName = "Breathing";
-        _activityDescription = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
-        _duration = 50;
+        activityName = "";
+        activityDescription = "";
+        
     }
 
 

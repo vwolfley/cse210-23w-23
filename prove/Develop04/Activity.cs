@@ -10,6 +10,10 @@ public class Activity
     private string _endingMessage;
 
     // Constructors
+    private Activity()
+    {
+
+    }
     public Activity(string activityName, string activityDescription, int duration)
     {
         _activityName = activityName;
@@ -60,11 +64,10 @@ public class Activity
 
 
     // Methods
-    public BreathingActivity(string activityName, string activityDescription, int duration) : base(activityName, activityDescription, duration)
+  public string GetSummary()
     {
-        _activityName = "Breathing";
-        _activityDescription = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
-        _duration = 50;
+        return @$"{_activityName}
+        {_activityDescription}";
     }
 
 

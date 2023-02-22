@@ -17,11 +17,6 @@ Select an option from the menu:  ";
     public string _userInput;
     private int _userChoice = 0;
 
-    // Constructors
-    // Getters and Setters
-
-
-
     // Methods
     public int UserChoice()
     // Method to display choices to user
@@ -29,15 +24,10 @@ Select an option from the menu:  ";
         Console.Write(_menu);
 
         _userInput = Console.ReadLine();
-        _userInput.ToLower();
         _userChoice = 0;
         // This block catches any non integer values that are entered
         try
         {
-            if (_userInput == "q")
-            {
-                Console.WriteLine("YES");
-            }
             _userChoice = int.Parse(_userInput);
         }
         catch (FormatException)

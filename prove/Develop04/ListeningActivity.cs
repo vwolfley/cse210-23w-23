@@ -18,9 +18,7 @@ public class ListeningActivity : Activity
     // Constructors
     public ListeningActivity(string activityName, string activityDescription, int duration) : base(activityName, activityDescription, duration)
     {
-        _activityName = "Listening";
-        _activityDescription = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
-        _duration = 50;
+        
     }
 
 

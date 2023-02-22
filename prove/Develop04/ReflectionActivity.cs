@@ -31,9 +31,7 @@ public class ReflectionActivity : Activity
     // Constructors
     public ReflectionActivity(string activityName, string activityDescription, int duration) : base(activityName, activityDescription, duration)
     {
-        _activityName = "Reflecting";
-        _activityDescription = "This activity will help you reflect on times ...";
-        _duration = 50;
+        
     }
 
 
