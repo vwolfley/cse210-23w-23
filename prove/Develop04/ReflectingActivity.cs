@@ -1,6 +1,6 @@
 using System;
 
-public class ReflectionActivity : Activity
+public class ReflectingActivity : Activity
 {
     // Attributes 
     private List<string> _promptList = new List<string>();
@@ -29,14 +29,20 @@ public class ReflectionActivity : Activity
 
 
     // Constructors
-    public ReflectionActivity(string activityName, string activityDescription, int duration) : base(activityName, activityDescription, duration)
+    // Methods
+    public ReflectingActivity(string activityName, int activityTime) : base(activityName, activityTime)
     {
         
+    }
+    public void GetActivityDescription()
+    {
+        var activityDescription = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+        Console.WriteLine(activityDescription);
     }
 
 
 
-    // Methods
+    
 
 
 }

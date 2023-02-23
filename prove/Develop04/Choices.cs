@@ -21,6 +21,8 @@ Select an option from the menu:  ";
     public int UserChoice()
     // Method to display choices to user
     {
+        // This will clear the console
+        Console.Clear();
         Console.Write(_menu);
 
         _userInput = Console.ReadLine();

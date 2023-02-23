@@ -1,6 +1,6 @@
 using System;
 
-public class ListeningActivity : Activity
+public class ListingActivity : Activity
 {
     // Attributes 
     private List<string> _promptList = new List<string>();
@@ -16,13 +16,19 @@ public class ListeningActivity : Activity
 
 
     // Constructors
-    public ListeningActivity(string activityName, string activityDescription, int duration) : base(activityName, activityDescription, duration)
+     // Methods
+    public ListingActivity(string activityName, int activityTime) : base(activityName, activityTime)
     {
         
     }
+    public void GetActivityDescription()
+    {
+        var activityDescription = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+        Console.WriteLine(activityDescription);
+    }
 
 
-    // Methods
+   
 
 
 }

@@ -4,70 +4,48 @@ public class Activity
 {
     // Attributes
     private string _activityName;
-    private string _activityDescription;
-    private int _duration;
-    private string _startingMessage;
-    private string _endingMessage;
+    private int _activityTime;
 
     // Constructors
-    private Activity()
-    {
-
-    }
-    public Activity(string activityName, string activityDescription, int duration)
+    public Activity(string activityName, int activityTime)
     {
         _activityName = activityName;
-        _activityDescription = activityDescription;
-        _duration = duration;
+        _activityTime = activityTime;
     }
-    public string GetStartingMessage()
+    public void GetActivityName()
     {
-        return _startingMessage;
-    }
-    public void SetStartingMessage(string startingMessage)
-    {
-        _startingMessage = startingMessage;
-    }
-    public string GetEndingMessage()
-    {
-        return _endingMessage;
-    }
-    public void SetEndingMessage(string endingMessage)
-    {
-        _endingMessage = endingMessage;
-    }
-    public string GetActivityName()
-    {
-        return _activityName;
+        Console.WriteLine($"Welcome to the {_activityName} activity\n");
     }
     public void SetActivityName(string activityName)
     {
         _activityName = activityName;
     }
-    public string GetActivityDescription()
+    public int GetActivityTime()
     {
-        return _activityDescription;
+        Console.Write("\nHow long, in seconds, would you like  for your session? ");
+        int userSeconds = Int32.Parse(Console.ReadLine());
+        _activityTime = userSeconds;
+        return userSeconds;
     }
-    public void SetActivityDescription(string activityDescription)
+    public void SetActivityTime(int activityTime)
     {
-        _activityDescription = activityDescription;
+        _activityTime = activityTime;
     }
-     public int GetDuration()
-    {
-        return _duration;
-    }
-    public void SetDuration(int duration)
-    {
-        _duration = duration;
-    }
-
-
 
     // Methods
-  public string GetSummary()
+    public void GetReady(int seconds)
     {
-        return @$"{_activityName}
-        {_activityDescription}";
+        Console.Clear();
+        Spinner spinner = new Spinner();
+        spinner.ShowSpinnerReady();
+    }
+
+    public void GetDone()
+    {
+        Spinner spinner = new Spinner();
+        spinner.ShowSpinnerDone();
+        Console.WriteLine($"\nYou have completed another {_activityTime} seconds of the {_activityName} Activity!");
+        spinner.ShowSpinner();
     }
 
 

@@ -12,7 +12,6 @@ class Program
         //Call Choices
         Choices choice = new Choices();
 
-
         int action = 0;
         while (action != 4)
         {
@@ -22,15 +21,50 @@ class Program
             {
                 case 1:
                     // Start Breathing Activity
-                    Console.WriteLine("Success Choice 1!");
+                    Console.Clear();
+                    BreathingActivity breathing = new BreathingActivity("Breathing", 0);
+                    breathing.GetActivityName();
+                    breathing.GetActivityDescription();
+                    int seconds = breathing.GetActivityTime();
+                    breathing.GetReady(5);
+                    breathing.Breathing(seconds);
+                    breathing.GetDone();
+
+
+
+                    // Animations spin = new Animations();
+                    // string loadingText = "Loading....";
+                    // Console.Write(loadingText);
+                    // Console.CursorVisible = false;
+
+                    // while (true)
+                    // {
+                    //     spin.Turn(loadingText);
+                    //     // spin.SequencedMatrix(2, 0, 20, 10);
+                    //     // spin.LoadingBar(loadingText, 23, 0);
+                    //     spin.Ready();
+                    // }
+
+
+
                     break;
                 case 2:
                     //Start Reflecting Activity
-                    Console.WriteLine("Success Choice 2!");
+                    Console.Clear();
+                    ReflectingActivity reflecting = new ReflectingActivity("Reflecting", 0);
+                    reflecting.GetActivityName();
+                    reflecting.GetActivityDescription();
+                    reflecting.GetActivityTime();
+
                     break;
                 case 3:
                     //Start Listing Activity
-                    Console.WriteLine("Success Choice 3!");
+                    Console.Clear();
+                    ListingActivity listing = new ListingActivity("Listing", 0);
+                    listing.GetActivityName();
+                    listing.GetActivityDescription();
+                    listing.GetActivityTime();
+
                     break;
                 case 4:
                     // Quite
