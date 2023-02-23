@@ -14,7 +14,7 @@ public class Activity
     }
     public void GetActivityName()
     {
-        Console.WriteLine($"Welcome to the {_activityName} activity\n");
+        Console.WriteLine($"Welcome to the {_activityName} Activity\n");
     }
     public void SetActivityName(string activityName)
     {
@@ -22,7 +22,7 @@ public class Activity
     }
     public int GetActivityTime()
     {
-        Console.Write("\nHow long, in seconds, would you like  for your session? ");
+        Console.Write("\nHow long, in seconds, would you like for your session? ");
         int userSeconds = Int32.Parse(Console.ReadLine());
         _activityTime = userSeconds;
         return userSeconds;
@@ -33,7 +33,7 @@ public class Activity
     }
 
     // Methods
-    public void GetReady(int seconds)
+    public void GetReady()
     {
         Console.Clear();
         Spinner spinner = new Spinner();
