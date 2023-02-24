@@ -39,9 +39,8 @@ class Program
                     reflecting.GetActivityDescription();
                     seconds = reflecting.GetActivityTime();
                     reflecting.GetReady();
-                    reflecting.GetRandomPrompt(seconds);
+                    reflecting.ShowPrompt(seconds);
                     reflecting.GetDone();
-
                     break;
                 case 3:
                     //Start Listing Activity
@@ -51,9 +50,8 @@ class Program
                     listing.GetActivityDescription();
                     seconds = listing.GetActivityTime();
                     listing.GetReady();
-                    listing.GetRandomPrompt(seconds);
+                    listing.ReturnPrompt(seconds);
                     listing.GetDone();
-
                     break;
                 case 4:
                     // Quite

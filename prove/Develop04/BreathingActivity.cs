@@ -25,7 +25,7 @@ public class BreathingActivity : Activity
         while (secondsTimer < seconds)
         {
             Console.WriteLine();  //insert blank line to start
-            for (int i = 4; i >= 0; i--)
+            for (int i = 4; i > 0; i--)
             {
                 Console.Write($"{_message1}{i}");
                 Thread.Sleep(1000);
@@ -34,7 +34,7 @@ public class BreathingActivity : Activity
                 secondsTimer += 1;
             }
             Console.WriteLine($"{_message1}  ");  // last prompt
-            for (int i = 5; i >= 0; i--)
+            for (int i = 5; i > 0; i--)
             {
                 Console.Write($"{_message2}{i}");
                 Thread.Sleep(1000);
