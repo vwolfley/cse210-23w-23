@@ -48,17 +48,17 @@ public class Activity
         Console.WriteLine($"\nYou have completed another {_activityTime} seconds of the {_activityName} Activity!");
         spinner.ShowSpinner();
     }
-     public void CountDown()
+     public void CountDown(int time)
     {
         Console.WriteLine();  //insert blank line to start
-        for (int i = 5; i > 0; i--)
+        for (int i = time; i > 0; i--)
         {
             Console.Write($"{_message}{i}");
             Thread.Sleep(1000);
-            string blank = new string('\b', (_message.Length + 2));  // Overwrite line
+            string blank = new string('\b', (_message.Length + 5));  // Overwrite line
             Console.Write(blank);
         }
-        Console.WriteLine($"Go:                               ");  // last prompt
+        Console.WriteLine($"Go:                                  ");  // last prompt
     }
 
 

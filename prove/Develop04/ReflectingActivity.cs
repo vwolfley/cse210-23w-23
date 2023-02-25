@@ -9,7 +9,8 @@ public class ReflectingActivity : Activity
     "Think of a time when you stood up for someone else.",
     "Think of a time when you did something really difficult.",
     "Think of a time when you helped someone in need.",
-    "Think of a time when you did something truly selfless."
+    "Think of a time when you did something truly selfless.",
+    "Think of a time when you failed at something."
     };
     private List<string> _questionList = new List<string>
     {
@@ -21,8 +22,11 @@ public class ReflectingActivity : Activity
     "What is your favorite thing about this experience?",
     "What could you learn from this experience that applies to other situations?",
     "What did you learn about yourself through this experience?",
-    "How can you keep this experience in mind in the future?"
+    "How can you keep this experience in mind in the future?",
+    "What was your motivation?"
     };
+    private List<string> _useQuestionsList = new List<string>();
+
     private string _prompt;
     private string _question;
     private string _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
@@ -47,8 +51,8 @@ public class ReflectingActivity : Activity
     private string GetRandomQuestion()
     {
         var random = new Random();
-        int index = random.Next(_questionList.Count);
-        return _questionList[index];
+        int index = random.Next(_useQuestionsList.Count);
+        return _useQuestionsList[index];
     }
     public void ShowPrompt(int seconds)
     {
@@ -66,22 +70,24 @@ public class ReflectingActivity : Activity
     }
     public void ShowQuestion(int seconds)
     {
+        _useQuestionsList.AddRange(_questionList); //creates a new list that can be destroyed each time.
         Spinner spinner = new Spinner();
-        var question = GetRandomQuestion();
         Console.WriteLine($"\nNow ponder on each of the following questions as they related to this experience.");
-        CountDown();
+        CountDown(8);
         Console.Clear();
-
         Stopwatch timer = new Stopwatch();
         timer.Start();
         while (timer.Elapsed.TotalSeconds < seconds)
         {
-            Console.Write($"\n>> {question}  ");
+            if (_useQuestionsList.Count != 0)
+            {
+                var question = GetRandomQuestion();
+                Console.Write($"\n>> {question}  ");
+                _useQuestionsList.Remove(question);  //removes question from list so it can not be used again
+            }
             spinner.ShowSpinner();
         }
         timer.Stop();
-
-
     }
 
 }

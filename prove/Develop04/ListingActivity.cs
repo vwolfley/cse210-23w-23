@@ -38,7 +38,7 @@ public class ListingActivity : Activity
         var question = GetRandomPrompt();
         Console.WriteLine("\nList as many responses as you can to the following prompt:");
         Console.WriteLine($"\n--- {question} ---");
-        CountDown();
+        CountDown(8);
         Timer(seconds);
     }
     public void Timer(int seconds)

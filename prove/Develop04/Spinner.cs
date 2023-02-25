@@ -66,7 +66,7 @@ public class Spinner
             }
             Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
             counter++;
-            Thread.Sleep(75);
+            Thread.Sleep(100);
         }
     }
 
