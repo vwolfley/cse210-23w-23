@@ -4,7 +4,7 @@ public class MainMenu
 {
     // Attributes 
     private string _menu = $@"
-Menu Options
+Main Menu Options
 ===========================================
 Please select one of the following options:
 1. Create New Goal

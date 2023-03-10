@@ -6,6 +6,10 @@ public abstract class ChecklistGoal : Goal
    
 
     // Constructors
+      public ChecklistGoal(string name, int point) : base(name, point)
+    {
+        
+    }
     
     // Methods
     

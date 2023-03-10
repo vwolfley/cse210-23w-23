@@ -4,15 +4,15 @@ public class GoalMenu
 {
     // Attributes 
     private string _menu = $@"
-Menu Options
+Goal Menu Options
 ===========================================
-Please select one of the following options:
+The Types of Goals are:
 1. Simple Goal
 2. Eternal Goal
 3. Checklist Goal
-4. Exit
+4. Back to Main Menu
 ===========================================
-Select an option from the menu:  ";
+What type of goal would you like to create?  ";
 
     public string _goalInput;
     private int _goalChoice = 0;
@@ -21,8 +21,7 @@ Select an option from the menu:  ";
     public int GoalChoice()
     // Method to display choices to user
     {
-        // This will clear the console
-        Console.Clear();
+
         Console.Write(_menu);
 
         _goalInput = Console.ReadLine();
