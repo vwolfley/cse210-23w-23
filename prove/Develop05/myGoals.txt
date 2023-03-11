@@ -1,0 +1,4 @@
+Simple Goal:; Change Filters; Change House Air Filters; 10; False
+Simple Goal:; Change Oil; Change Oil In Truck; 50; True
+Eternal Goal:; Read More; Read More Good Books; 50; False
+Check List Goal:; Go To Temple; Go To Temple Weekly; 50; False; 52; 500

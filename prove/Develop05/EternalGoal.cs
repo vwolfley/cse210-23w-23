@@ -3,25 +3,37 @@ using System;
 public class EternalGoal : Goal
 {
     // Attributes
+    private string _type;
      private string _name;
     private string _description;
     private int _points;
-    private int _count;
+    private bool _status;
 
 
     // Constructors
-    public EternalGoal(string name, string description, int points) : base(name, description, points)
+    public EternalGoal(string type, string name, string description, int points, bool status) : base(type, name, description, points, status)
     {
+        _type = type;
         _name = name;
         _description = description;
         _points = points;
+        _status = false;
     }
 
     // Methods
 
-    public override void ListGoal()
+    public override void ListGoal(int i)
     {
-        Console.WriteLine($"{_count} [ ] {_name} ({_description})");
+        Console.WriteLine($"{i}.  [ ] {_name} ({_description})");
+    }
+    public override string SaveGoal()
+    {
+        return ($"{_type}; {_name}; {_description}; {_points}; {_status}");
+    }
+
+    public override string LoadGoal()
+    {
+        return ($"Simple Goal:; {_name}; {_description}; {_points}; {_status}");
     }
 
 
