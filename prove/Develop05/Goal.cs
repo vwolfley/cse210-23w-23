@@ -17,43 +17,16 @@ public abstract class Goal
         _description = description;
         _points = points;
     }
-    public string GetName()
-    {
-        return _name;
-    }
-    public void SetName(string name)
-    {
-        _name = name;
-    }
-    public int GetPoints()
-    {
-        return _points;
-    }
-    public void SetPoints(int points)
-    {
-        _points = points;
-    }
+
+
 
     // Methods
-    public void ListGoals()
-    {
-        Console.WriteLine("Your Goals are:");
-    }
+    public abstract void ListGoal();
+    // public abstract void RecordEvent();
 
-    public void SaveGoal(string filename)
-    {
+    // public abstract string MarkComplete();
 
-    }
 
-    public void LoadGoal(string filename)
-    {
-
-    }
-    public abstract void RecordEvent();
-    public abstract void CreateGoal();
-    public abstract string MarkComplete();
-
-    
 
 
 

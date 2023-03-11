@@ -1,12 +1,12 @@
 using System;
 
-public abstract class ChecklistGoal : Goal
+public class ChecklistGoal : Goal
 {
     // Attributes
    
 
     // Constructors
-      public ChecklistGoal(string name, int point) : base(name, point)
+      public ChecklistGoal(string name, string description, int points, int bonusNumber, int bonusPoints) : base(name, description, points)
     {
         
     }
