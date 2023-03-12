@@ -14,8 +14,7 @@ class Program
         Console.Clear();  // This will clear the console
         Console.Write("\n*** Welcome to the Eternal Quest Program ****\n");
 
-        int totalPoints = 0;
-        Console.Write($"\nYou currently have {totalPoints} points!\n");
+        Console.Write($"\n*** You currently have {goals.GetTotalPoints()} points! ***\n");
         //Call MainMenu
         MainMenu choice = new MainMenu();
         //Call GoalMenu
@@ -49,9 +48,9 @@ class Program
                                 Console.WriteLine("What is a short description of your goal?  ");
                                 string description = Console.ReadLine();
                                 description = textInfo.ToTitleCase(description);
-                                Console.WriteLine("What is the amount of points associated with this goal?  ");
+                                Console.Write("What is the amount of points associated with this goal?  ");
                                 int points = int.Parse(Console.ReadLine());
-                                SimpleGoal sGoal = new SimpleGoal("Simple Goal:", name, description, points, false);
+                                SimpleGoal sGoal = new SimpleGoal("Simple Goal:", name, description, points);
                                 goals.AddGoal(sGoal);
                                 goalInput = 4;
                                 break;
@@ -63,9 +62,9 @@ class Program
                                 Console.WriteLine("What is a short description of your goal?  ");
                                 description = Console.ReadLine();
                                 description = textInfo.ToTitleCase(description);
-                                Console.WriteLine("What is the amount of points associated with this goal?  ");
+                                Console.Write("What is the amount of points associated with this goal?  ");
                                 points = int.Parse(Console.ReadLine());
-                                EternalGoal eGoal = new EternalGoal("Eternal Goal:", name, description, points, false);
+                                EternalGoal eGoal = new EternalGoal("Eternal Goal:", name, description, points);
                                 goals.AddGoal(eGoal);
                                 goalInput = 4;
                                 break;
@@ -77,13 +76,13 @@ class Program
                                 Console.WriteLine("What is a short description of your goal?  ");
                                 description = Console.ReadLine();
                                 description = textInfo.ToTitleCase(description);
-                                Console.WriteLine("What is the amount of points associated with this goal?  ");
+                                Console.Write("What is the amount of points associated with this goal?  ");
                                 points = int.Parse(Console.ReadLine());
-                                Console.WriteLine("How many times does this goal need to be accomplished for a bonus?  ");
-                                int bonusNumber = int.Parse(Console.ReadLine());
-                                Console.WriteLine("What is the bonus for accomplishing it that many times?  ");
+                                Console.Write("How many times does this goal need to be accomplished for a bonus?  ");
+                                int numberTimes = int.Parse(Console.ReadLine());
+                                Console.Write("What is the bonus for accomplishing it that many times?  ");
                                 int bonusPoints = int.Parse(Console.ReadLine());
-                                ChecklistGoal clGoal = new ChecklistGoal("Check List Goal:", name, description, points, false, bonusNumber, bonusPoints);
+                                ChecklistGoal clGoal = new ChecklistGoal("Check List Goal:", name, description, points, numberTimes, bonusPoints);
                                 goals.AddGoal(clGoal);
                                 goalInput = 4;
                                 break;
@@ -99,6 +98,7 @@ class Program
                 case 2:
                     // List Goals
                     Console.Clear();  // This will clear the console
+                    Console.Write($"\n*** You currently have {goals.GetTotalPoints()} points! ***\n");
                     goals.ListGoals();
                     break;
                 case 3:
@@ -107,11 +107,15 @@ class Program
                     break;
                 case 4:
                     // Load Goals
+                    Console.Clear();  // This will clear the console
+                    Console.Write($"\n*** You currently have {goals.GetTotalPoints()} points! ***\n");
                     goals.LoadGoals();
                     break;
                 case 5:
                     // Record Event
-                    Console.WriteLine("record events");
+                    Console.Clear();  // This will clear the console
+                    Console.Write($"\n*** You currently have {goals.GetTotalPoints()} points! ***\n");
+                    goals.RecordGoalEvent();
                     break;
                 case 6:
                     // Quite

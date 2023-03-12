@@ -3,51 +3,57 @@ using System;
 public class SimpleGoal : Goal
 {
     // Attributes
-    private string _type;
-    private string _name;
-    private string _description;
-    private int _points;
+    private string _type = "Simple Goal:";
     private bool _status;
 
     // Constructors
-    public SimpleGoal(string type, string name, string description, int points, bool status) : base(type, name, description, points, status)
+    public SimpleGoal(string type, string name, string description, int points) : base(type, name, description, points)
     {
-        _type = type;
-        _name = name;
-        _description = description;
-        _points = points;
         _status = false;
+    }
+    public SimpleGoal(string type, string name, string description, int points, bool status) : base(type, name, description, points)
+    {
+        _status = status;
+    }
+    public Boolean Finished()
+    {
+        return _status;
     }
 
     // Methods
-    public void CreateGoal()
-    {
-        Console.WriteLine($"TEST ");
-        _name = Console.ReadLine();
-        Console.WriteLine($"TEST2  ");
-        _description = Console.ReadLine();
-        Console.WriteLine($"LONG TEST  ");
-        _points = int.Parse(Console.ReadLine());
-    }
+    // public void CreateGoal()
+    // {
+    //     Console.WriteLine($"TEST ");
+    //     _name = Console.ReadLine();
+    //     Console.WriteLine($"TEST2  ");
+    //     _description = Console.ReadLine();
+    //     Console.WriteLine($"LONG TEST  ");
+    //     _points = int.Parse(Console.ReadLine());
+    // }
 
     public override void ListGoal(int i)
     {
-        if (_status == false)
+        if (Finished() == false)
         {
-            Console.WriteLine($"{i}.  [ ] {_name} ({_description})");
+            Console.WriteLine($"{i}. [ ] {GetName()} ({GetDescription()})");
         }
-        else if (_status == true)
+        else if (Finished() == true)
         {
-            Console.WriteLine($"{i}.  [X] {_name} ({_description})");
+            Console.WriteLine($"{i}. [X] {GetName()} ({GetDescription()})");
         }
     }
     public override string SaveGoal()
     {
-        return ($"{_type}; {_name}; {_description}; {_points}; {_status}");
+        return ($"{_type}; {GetName()}; {GetDescription()}; {GetPoints()}; {_status}");
     }
     public override string LoadGoal()
     {
-        return ($"{_type}; {_name}; {_description}; {_points}; {_status}");
+        return ($"{_type}; {GetName()}; {GetDescription()}; {GetPoints()}; {_status}");
+    }
+    public override void RecordGoalEvent(List<Goal> goals)
+    {
+       _status = true;
+       Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!");
     }
 
 }

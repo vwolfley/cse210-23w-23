@@ -1,10 +1,11 @@
 using System;
+using System.IO;
 
 public class GoalManagement
 
 {
     // Attributes
-    private List<Goal> _listGoals = new List<Goal>();
+    private List<Goal> _goals = new List<Goal>();
     private int _totalPoints;
 
 
@@ -13,54 +14,96 @@ public class GoalManagement
     {
         _totalPoints = 0;
     }
+    public void AddGoal(Goal goal)
+    {
+        _goals.Add(goal);
+    }
     public int GetTotalPoints()
     {
         return _totalPoints;
     }
-
-
-    // Methods
-    public void AddGoal(Goal goal)
+    public void AddPoints(int points)
     {
-        _listGoals.Add(goal);
+        _totalPoints += points;
+    }
+    public void SetTotalPoints(int totalPoints)
+    {
+        _totalPoints = totalPoints;
+    }
+    public List<Goal> GetGoalsList()
+    {
+        return _goals;
     }
 
+    // Methods
     public void ListGoals()
     {
-        Console.WriteLine("\nYour Goals are:");
-        // Loop though goals list
-        int index = 1;
-        foreach (Goal goal in _listGoals)
+        if (_goals.Count() > 0)
         {
-            goal.ListGoal(index);
-            index = index + 1;
+            Console.WriteLine("\nYour Goals are:");
+
+            int index = 1;
+            // Loop though goals list
+            foreach (Goal goal in _goals)
+            {
+                goal.ListGoal(index);
+                index = index + 1;
+            }
+        }
+        else
+        {
+            Console.WriteLine("\nYou currently have no goals!");
         }
     }
 
+    public void RecordGoalEvent()
+    {
+        ListGoals();
+
+        Console.Write("\nWhich goal did you accomplished?  ");
+        int select = int.Parse(Console.ReadLine())-1;
+
+        int goalPoints = GetGoalsList()[select].GetPoints();
+        AddPoints(goalPoints);
+
+        GetGoalsList()[select].RecordGoalEvent(_goals);
+
+        Console.WriteLine($"\n*** Congratulations! You have {GetTotalPoints()} points! ***\n");
+    }
     public void SaveGoals()
     {
-        Console.Write("What is your name for this goal file?  ");
+        Console.Write("\nWhat is the name for this goal file?  ");
         string userInput = Console.ReadLine();
         string userFileName = userInput + ".txt";
 
         using (StreamWriter outputFile = new StreamWriter(userFileName))
         {
-            foreach (Goal g in _listGoals)
+            // Save Total Points
+            outputFile.WriteLine(GetTotalPoints());
+            // Save goals list
+            foreach (Goal goal in _goals)
             {
-                outputFile.WriteLine(g.SaveGoal());
+                outputFile.WriteLine(goal.SaveGoal());
             }
         }
     }
 
     public void LoadGoals()
     {
-        Console.Write("What is the name of your goal file?  ");
+        Console.Write("\nWhat is the name of your goal file?  ");
         string userInput = Console.ReadLine();
         string userFileName = userInput + ".txt";
 
         if (File.Exists(userFileName))
         {
-            List<string> readText = File.ReadAllLines(userFileName).Where(arg => !string.IsNullOrWhiteSpace(arg)).ToList();
+            string[] readText = File.ReadAllLines(userFileName);
+
+            // read the first line of text file for total stored points
+            int totalPoints = int.Parse(readText[0]);
+            SetTotalPoints(totalPoints);
+            // skip the first line of text file to read to goals
+            readText = readText.Skip(1).ToArray();
+            // loop though text file for goals
             foreach (string line in readText)
             {
                 string[] entries = line.Split("; ");
@@ -83,9 +126,10 @@ public class GoalManagement
                 }
                 if (entries[0] == "Check List Goal:")
                 {
-                    int bonusNumber = int.Parse(entries[5]);
+                    int numberTimes = int.Parse(entries[5]);
                     int bonusPoints = int.Parse(entries[6]);
-                    ChecklistGoal clGoal = new ChecklistGoal(type, name, description, points, status, bonusNumber, bonusPoints);
+                    int counter = int.Parse(entries[7]);
+                    ChecklistGoal clGoal = new ChecklistGoal(type, name, description, points, status, numberTimes, bonusPoints, counter);
                     AddGoal(clGoal);
                 }
             }

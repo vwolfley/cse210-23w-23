@@ -11,7 +11,7 @@ Please select one of the following options:
 2. List Goals
 3. Save Goals
 4. Load Goals
-5. Record Event
+5. Record Goal Event
 6. Quit
 ===========================================
 Select an option from the menu:  ";

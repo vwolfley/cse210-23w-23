@@ -3,39 +3,67 @@ using System;
 public class ChecklistGoal : Goal
 {
     // Attributes
-    private string _type;
-    private string _name;
-    private string _description;
-    private int _points;
-    private int _bonusNumber;
+    private string _type = "Check List Goal:";
+    private int _numberTimes;
     private int _bonusPoints;
     private bool _status;
+    private int _counter;
 
 
     // Constructors
-    public ChecklistGoal(string type, string name, string description, int points, bool status, int bonusNumber, int bonusPoints) : base(type, name, description, points, status)
+    public ChecklistGoal(string type, string name, string description, int points, int numberTimes, int bonusPoints) : base(type, name, description, points)
     {
-        _type = type;
-        _name = name;
-        _description = description;
-        _points = points;
-        _bonusNumber = bonusNumber;
-        _bonusPoints = bonusPoints;
         _status = false;
+        _numberTimes = numberTimes;
+        _bonusPoints = bonusPoints;
+        _counter = 0;
+    }
+    public ChecklistGoal(string type, string name, string description, int points, bool status, int numberTimes, int bonusPoints, int counter) : base(type, name, description, points)
+    {
+        _status = status;
+        _numberTimes = numberTimes;
+        _bonusPoints = bonusPoints;
+        _counter = counter;
+    }
+
+    public int GetTimes()
+    {
+        return _counter;
+    }
+    public void SetTimes()
+    {
+        _counter = _counter + 1;
+    }
+    public Boolean Finished()
+    {
+        return _status;
     }
 
     // Methods
     public override void ListGoal(int i)
     {
-        Console.WriteLine($"{i}.  [ ] {_name} ({_description})  --  Currently Completed: 0/{_bonusNumber}");
+         if (Finished() == false)
+        {
+            Console.WriteLine($"{i}. [ ] {GetName()} ({GetDescription()})  --  Currently Completed: {_counter}/{_numberTimes}");
+        }
+        else if (Finished() == true)
+        {
+            Console.WriteLine($"{i}. [X] {GetName()} ({GetDescription()})  --  Completed: {_counter}/{_numberTimes}");
+        }
+        
     }
     public override string SaveGoal()
     {
-        return ($"{_type}; {_name}; {_description}; {_points}; {_status}; {_bonusNumber}; {_bonusPoints}");
+        return ($"{_type}; {GetName()}; {GetDescription()}; {GetPoints()}; {_status}; {_numberTimes}; {_bonusPoints}; {_counter}");
     }
     public override string LoadGoal()
     {
-        return ($"Simple Goal:; {_name}; {_description}; {_points}; {_status}");
+        return ($"Simple Goal:; {GetName()}; {GetDescription()}; {GetPoints()}; {_status}; {_numberTimes}; {_bonusPoints}; {_counter}");
+    }
+    public override void RecordGoalEvent(List<Goal> goals)
+    {
+        _status = true;
+        Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!");
     }
 
 }

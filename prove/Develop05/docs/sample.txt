@@ -1,0 +1,46 @@
+public abstract class Goal // Base class (parent) 
+{
+    public virtual void Goal()
+    {
+        Console.WriteLine("This is my Goal");
+    }
+}
+
+public class SimpleGoal : Goal  // Derived class (child) 
+{
+    public override void Goal()
+    {
+        Console.WriteLine("This is my Simple Goal");
+    }
+}
+
+public class EternalGoal : Goal  // Derived class (child) 
+{
+    public override void Goal()
+    {
+        Console.WriteLine("This is my Eternal Goal");
+    }
+}
+
+public class ChecklistGoal : Goal  // Derived class (child) 
+{
+    public override void Goal()
+    {
+        Console.WriteLine("This is my Checklist Goal");
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Goal myGoal = new Goal();  // Create a Goal object
+        SimpleGoal mySimpleGoal = new SimpleGoal();  // Create a SimpleGoal object
+        EternalGoal myEternalGoal = new EternalGoal();  // Create a EternalGoal object
+        ChecklistGoal myCheckListGoal = new ChecklistGoal();  // Create a CheckListGoal object
+
+        myGoal.Goal();
+        mySimpleGoal.Goal();
+        myEternalGoal.Goal();
+        myCheckListGoal.Goal();
+    }
+}
