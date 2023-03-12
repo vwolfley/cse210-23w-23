@@ -1,0 +1,6 @@
+15
+Check List Goal:; Test; This Is Only A Test; 5; False; 3; 50; 1
+Check List Goal:; Eat More Veggies; Have More Vegetables At Dinner; 10; False; 4; 100; 2
+Simple Goal:; Change Filters; Change House Air Filters; 10; False
+Simple Goal:; Change Oil; Change Oil In Truck; 50; False
+Negative Goal:; Stop Drinking Diet Coke; No More Diet Coke; -10; False

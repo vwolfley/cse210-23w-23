@@ -10,7 +10,8 @@ The Types of Goals are:
 1. Simple Goal
 2. Eternal Goal
 3. Checklist Goal
-4. Back to Main Menu
+4. Bad Habit Goal
+5. Back to Main Menu
 ===========================================
 What type of goal would you like to create?  ";
 

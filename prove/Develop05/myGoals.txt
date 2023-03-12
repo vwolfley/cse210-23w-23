@@ -1,6 +1,8 @@
-60
+10
 Simple Goal:; Change Filters; Change House Air Filters; 10; True
 Simple Goal:; Change Oil; Change Oil In Truck; 50; False
 Eternal Goal:; Read More; Read More Good Books; 50; False
 Check List Goal:; Go To Temple; Go To Temple Weekly; 50; False; 52; 500; 0
 Eternal Goal:; Read Daily Scripture; Read The Scriptures Daily; 5; False
+Check List Goal:; Read A Book; Read A Book Each Month; 100; False; 12; 500; 5
+Check List Goal:; Eat More Veggies; Have More Vegetables At Dinner; 10; True; 4; 100; 4

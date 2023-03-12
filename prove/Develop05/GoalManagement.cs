@@ -55,7 +55,6 @@ public class GoalManagement
             Console.WriteLine("\nYou currently have no goals!");
         }
     }
-
     public void RecordGoalEvent()
     {
         ListGoals();
@@ -68,7 +67,7 @@ public class GoalManagement
 
         GetGoalsList()[select].RecordGoalEvent(_goals);
 
-        Console.WriteLine($"\n*** Congratulations! You have {GetTotalPoints()} points! ***\n");
+        Console.WriteLine($"\n*** You have {GetTotalPoints()} points! ***\n");
     }
     public void SaveGoals()
     {
@@ -131,6 +130,11 @@ public class GoalManagement
                     int counter = int.Parse(entries[7]);
                     ChecklistGoal clGoal = new ChecklistGoal(type, name, description, points, status, numberTimes, bonusPoints, counter);
                     AddGoal(clGoal);
+                }
+                if (entries[0] == "Negative Goal:")
+                {
+                    NegativeGoal nGoal = new NegativeGoal(type, name, description, points, status);
+                    AddGoal(nGoal);
                 }
             }
         }

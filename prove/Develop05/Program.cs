@@ -34,7 +34,7 @@ class Program
                     Console.Clear();  // This will clear the console
                     // Ask for user input (1-4)
                     int goalInput = 0;
-                    while (goalInput != 4)
+                    while (goalInput != 5)
                     // switch case for goals menu
                     {
                         goalInput = goalChoice.GoalChoice();
@@ -52,7 +52,7 @@ class Program
                                 int points = int.Parse(Console.ReadLine());
                                 SimpleGoal sGoal = new SimpleGoal("Simple Goal:", name, description, points);
                                 goals.AddGoal(sGoal);
-                                goalInput = 4;
+                                goalInput = 5;
                                 break;
                             case 2:
                                 // Eternal Goal
@@ -66,7 +66,7 @@ class Program
                                 points = int.Parse(Console.ReadLine());
                                 EternalGoal eGoal = new EternalGoal("Eternal Goal:", name, description, points);
                                 goals.AddGoal(eGoal);
-                                goalInput = 4;
+                                goalInput = 5;
                                 break;
                             case 3:
                                 // Checklist Goal
@@ -84,9 +84,23 @@ class Program
                                 int bonusPoints = int.Parse(Console.ReadLine());
                                 ChecklistGoal clGoal = new ChecklistGoal("Check List Goal:", name, description, points, numberTimes, bonusPoints);
                                 goals.AddGoal(clGoal);
-                                goalInput = 4;
+                                goalInput = 5;
                                 break;
                             case 4:
+                                // Negative Goal
+                                Console.WriteLine("What is the name of your goal?  ");
+                                name = Console.ReadLine();
+                                name = textInfo.ToTitleCase(name);
+                                Console.WriteLine("What is a short description of your goal?  ");
+                                description = Console.ReadLine();
+                                description = textInfo.ToTitleCase(description);
+                                Console.Write("How many points should be subtracted for not meeting this goal?  ");
+                                points = int.Parse(Console.ReadLine());
+                                NegativeGoal nGoal = new NegativeGoal("Negative Goal:", name, description, points);
+                                goals.AddGoal(nGoal);
+                                goalInput = 5;
+                                break;
+                            case 5:
                                 // Exit
                                 break;
                             default:
