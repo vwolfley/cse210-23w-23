@@ -26,6 +26,10 @@ public class GoalManagement
     {
         _totalPoints += points;
     }
+    public void AddBonus(int bonusPoints)
+    {
+        _totalPoints += bonusPoints;
+    }
     public void SetTotalPoints(int totalPoints)
     {
         _totalPoints = totalPoints;

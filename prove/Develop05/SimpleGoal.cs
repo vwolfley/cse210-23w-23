@@ -21,16 +21,6 @@ public class SimpleGoal : Goal
     }
 
     // Methods
-    // public void CreateGoal()
-    // {
-    //     Console.WriteLine($"TEST ");
-    //     _name = Console.ReadLine();
-    //     Console.WriteLine($"TEST2  ");
-    //     _description = Console.ReadLine();
-    //     Console.WriteLine($"LONG TEST  ");
-    //     _points = int.Parse(Console.ReadLine());
-    // }
-
     public override void ListGoal(int i)
     {
         if (Finished() == false)
