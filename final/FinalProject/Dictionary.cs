@@ -20,7 +20,7 @@ public class Dictionary
     public void LoadWords()
     {
         // Get file with words
-        string fileName = "words.txt";
+        string fileName = "words2.txt";
         // Read file into dictionary
         string[] readText = File.ReadAllLines(fileName);
 
@@ -35,5 +35,3 @@ public class Dictionary
 
     }
 }
-
-// Draw ASCII Man

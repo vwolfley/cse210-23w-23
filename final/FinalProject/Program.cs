@@ -10,9 +10,9 @@ class Program
         MainMenu choice = new MainMenu();
         // Call GameMenu
         GameMenu gameChoice = new GameMenu();
-        // Call Renderer
-        Renderer renderer = new Renderer();
 
+        // start game 
+        Hangman game = new Hangman();
         // Print welcome message
         choice.PrintWelcome();
 
@@ -38,7 +38,7 @@ class Program
                         {
                             case 1:
                                 // Random Words
-
+                                game.StartGame();
                                 break;
                             case 2:
                                 // Pick your word topic

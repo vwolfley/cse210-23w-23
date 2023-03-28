@@ -11,7 +11,7 @@ Your Game Options are:
 2. Pick your word topic
 3. Back to Main Menu
 ===========================================
-What type of goal would you like to create?  ";
+Which game would you like to play?  ";
 
     public string _gameInput;
     private int _gameChoice = 0;

@@ -1,6 +1,6 @@
 using System;
 
-public class Word
+public class WordGenerator
 {
     // Attributes
     private string _randomWord;
@@ -10,7 +10,7 @@ public class Word
     // Constructors
 
     // Methods
-    public string GetWord()
+    public string GetRandomWord()
     {
         Random random = new Random();
         Dictionary dictionary = new Dictionary();
@@ -22,14 +22,14 @@ public class Word
 
         return _randomWord;
     }
-    public int PrintWord(List<char> guessedLetters, String randomWord)
+    public int ShowRandomWord(List<char> guessedLetter, String randomWord)
     {
         _counter = 0;
         _rightLetters = 0;
         Console.Write("\r\n");
         foreach (char l in randomWord)
         {
-            if (guessedLetters.Contains(l))
+            if (guessedLetter.Contains(l))
             {
                 Console.Write(l + " ");
                 _rightLetters += 1;
@@ -42,9 +42,12 @@ public class Word
         }
         return _rightLetters;
     }
-    public int GetWordCount()
+    public int GetRandomWordCount()
     {
         return _randomWord.Length;
     }
+    
+
+
 
 }

@@ -1,13 +1,13 @@
 using System;
 
-public class Renderer
+public class GallowsRenderer
 {
     // Attributes
     // Constructors
     // Methods
-    public void PrintHangman(int wrong)
+    public void ShowGallows(int wrongGuessCount)
     {
-        if (wrong == 0)
+        if (wrongGuessCount == 0)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine("    |");
@@ -15,7 +15,7 @@ public class Renderer
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
-        else if (wrong == 1)
+        else if (wrongGuessCount == 1)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine("O   |");
@@ -23,7 +23,7 @@ public class Renderer
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
-        else if (wrong == 2)
+        else if (wrongGuessCount == 2)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine("O   |");
@@ -31,7 +31,7 @@ public class Renderer
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
-        else if (wrong == 3)
+        else if (wrongGuessCount == 3)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine(" O  |");
@@ -39,7 +39,7 @@ public class Renderer
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
-        else if (wrong == 4)
+        else if (wrongGuessCount == 4)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine(" O  |");
@@ -47,7 +47,7 @@ public class Renderer
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
-        else if (wrong == 5)
+        else if (wrongGuessCount == 5)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine(" O  |");
@@ -55,7 +55,7 @@ public class Renderer
             Console.WriteLine("/   |");
             Console.WriteLine("   ===");
         }
-        else if (wrong == 6)
+        else if (wrongGuessCount == 6)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine(" O   |");
