@@ -22,26 +22,26 @@ public class WordGenerator
 
         return _randomWord;
     }
-    public int ShowRandomWord(List<char> guessedLetter, String randomWord)
-    {
-        _counter = 0;
-        _rightLetters = 0;
-        Console.Write("\r\n");
-        foreach (char l in randomWord)
-        {
-            if (guessedLetter.Contains(l))
-            {
-                Console.Write(l + " ");
-                _rightLetters += 1;
-            }
-            else
-            {
-                Console.Write("  ");
-            }
-            _counter += 1;
-        }
-        return _rightLetters;
-    }
+    // public int ShowRandomWord(List<char> guessedLetter, String randomWord)
+    // {
+    //     _counter = 0;
+    //     _rightLetters = 0;
+    //     Console.Write("\r\n");
+    //     foreach (char l in randomWord)
+    //     {
+    //         if (guessedLetter.Contains(l))
+    //         {
+    //             Console.Write(l + " ");
+    //             _rightLetters += 1;
+    //         }
+    //         else
+    //         {
+    //             Console.Write("  ");
+    //         }
+    //         _counter += 1;
+    //     }
+    //     return _rightLetters;
+    // }
     public int GetRandomWordCount()
     {
         return _randomWord.Length;

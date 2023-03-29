@@ -6,7 +6,7 @@ using System.Text;
 public class Hangman
 {
     // Attributes
-    private char _letterGuessed;
+    private string _letterGuessed;
     private Player player;
     private GallowsRenderer gallowsRenderer;
     private WordGenerator randomWord;
@@ -26,18 +26,19 @@ public class Hangman
     {
         Console.Clear();  // This will clear the console
         SelectRandomWord();
-        printLines.GetLines(player.randomWord);
-        // DisplayRandomWord();
+        DisplayRandomWord();
+        player.ShowRandomWord();
         do
         {
             ShowGallows();
-            randomWord.ShowRandomWord(player.currentLettersGuessed, player.randomWord);
-            ShowLettersGuessed();
+            ShowLettersGuessesRight();
+            ShowLettersGuessedWrong();
             PromptPlayerForLetter();
             CheckPlayerGuess();
         } while (!player.GameOver());
-        DisplayRandomWord();
 
+        GameOver();
+        PlayAgain();
 
 
     }
@@ -55,15 +56,27 @@ public class Hangman
         do
         {
             Console.Write("Guess a letter >>  ");
-            _letterGuessed = Console.ReadLine()[0];
+            string g = Console.ReadLine();
+            _letterGuessed = g.Substring(0, 1);
         } while (player.CheckIfGuessed(player, _letterGuessed));
 
-        player.currentLettersGuessed.Add(_letterGuessed);
+        player.lettersGuessed.Add(_letterGuessed);
     }
     private void CheckPlayerGuess()
     {
         player.CheckLatestGuess(_letterGuessed);
-        randomWord.ShowRandomWord(player.currentLettersGuessed, player.randomWord);
+        player.ShowRandomWord();
+    }
+
+    private void PlayAgain()
+    {
+        Console.WriteLine($"\nWould you like to play again?, press enter to continue.");
+
+        var input = Console.ReadKey();
+        if (input.Key == ConsoleKey.Enter)
+        {
+            // StartGame();
+        }
     }
 
 
@@ -79,10 +92,30 @@ public class Hangman
         gallowsRenderer.ShowGallows(player.wrongGuessCount);
     }
 
-    private void ShowLettersGuessed()
+    private void ShowLettersGuessesRight()
     {
-        Console.WriteLine(player.wrongGuesses);
-        Console.WriteLine("");
+        Console.WriteLine($"\n{player.showRandomWord}\n");
+    }
+
+    private void ShowLettersGuessedWrong()
+    {
+        Console.WriteLine($"\n{player.wrongGuesses}\n");
+    }
+
+    private void GameOver()
+    {
+        Console.Clear();  // This will clear the console
+        if (player.GameOver() && player.PlayerWon())
+        {
+            Console.WriteLine("*** Congratulations You Won! ***");
+        }
+        else
+        {
+            Console.WriteLine("*** Sorry, you lost! ***");
+        }
+        ShowGallows();
+        Console.Write($"\nThe word was - {player.randomWord}\n");
+
     }
 
 

@@ -7,9 +7,10 @@ public class Player
 {
     // Attributes
     public string randomWord { get; set; }
+    public string showRandomWord { get; set; }
     public string guessedLetter { get; set; }
-    public List<char> currentLettersGuessed { get; set; }
-    public List<char> wrongGuessList { get; set; }
+    public List<string> lettersGuessed { get; set; }
+    public List<string> wrongGuessList { get; set; }
     public string guesses { get; set; }
     public string wrongGuesses { get; set; }
     public int wrongGuessCount;
@@ -18,9 +19,10 @@ public class Player
     public Player()
     {
         randomWord = string.Empty;
+        showRandomWord = string.Empty;
         guessedLetter = string.Empty;
-        currentLettersGuessed = new List<char>();
-        wrongGuessList = new List<char>();
+        lettersGuessed = new List<string>();
+        wrongGuessList = new List<string>();
         guesses = string.Empty;
         wrongGuesses = string.Empty;
         wrongGuessCount = 0;
@@ -40,48 +42,69 @@ public class Player
     {
         return ((wrongGuessCount == 6) || (correctGuessCount == randomWord.Length));
     }
-    public void CheckLatestGuess(char newGuess)
-    {
 
+    public void ShowRandomWord()
+    {
+        StringBuilder sb = new StringBuilder();
         bool correctLetter = false;
-        string word = randomWord;
-        currentLettersGuessed.Add(newGuess);
-        // Check if that letter has already been guessed
-        if (wrongGuessList.Contains(newGuess))
+
+        for (int i = 0; i < randomWord.Length; i++)
         {
-            Console.Write("\r\n You have already guessed this letter");
-        }
-        // Check if letter is in randomWord
-        else
-        {
-            for (int i = 0; i < randomWord.Length; i++)
+            correctLetter = false;
+            foreach (string l in lettersGuessed)
             {
-                if (randomWord[i].ToString().Equals(newGuess))
+                if (randomWord[i].ToString().Equals(l))
                 {
-                    correctGuessCount++;
                     correctLetter = true;
                 }
             }
-            // User was wrong
             if (!correctLetter)
             {
-                wrongGuessCount++;
-                wrongGuessList.Add(newGuess);
+                sb.Append("_ ");
             }
-            StringBuilder sb = new StringBuilder();
-            sb.Append("Wrong Guessess: [ ");
-            foreach (char l in wrongGuessList)
+            else
             {
-                sb.Append(l).Append(" ");
+                sb.Append(randomWord[i].ToString()).Append(" ");
             }
-            sb.Append("]");
-            wrongGuesses = sb.ToString();
         }
+        showRandomWord = sb.ToString();
     }
 
-    public bool CheckIfGuessed(Player player, char newGuess)
+
+    public void CheckLatestGuess(string newGuess)
     {
-        if (player.currentLettersGuessed.Contains(newGuess))
+        bool correctLetter = false;
+        StringBuilder sb = new StringBuilder();
+        string word = randomWord;
+        lettersGuessed.Add(newGuess);
+        for (int i = 0; i < randomWord.Length; i++)
+        {
+            if (randomWord[i].ToString().Equals(newGuess))
+            {
+                correctGuessCount++;
+                correctLetter = true;
+            }
+        }
+        // User was wrong
+        if (!correctLetter)
+        {
+            wrongGuessCount++;
+            wrongGuessList.Add(newGuess);
+        }
+
+        sb.Append("Wrong Guesses: [ ");
+        foreach (string l in wrongGuessList)
+        {
+            sb.Append(l).Append(" ");
+        }
+        sb.Append("]");
+        wrongGuesses = sb.ToString();
+
+    }
+
+    public bool CheckIfGuessed(Player player, string newGuess)
+    {
+        if (player.lettersGuessed.Contains(newGuess))
         {
             return true;
         }
