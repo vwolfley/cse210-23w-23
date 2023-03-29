@@ -13,44 +13,50 @@ Your list Options are:
 4. Back to Main Menu
 ===========================================";
 
-    public string _listInput;
-    private int _listChoice = 0;
+    private string _userInput;
+    private int _userChoice = 0;
     private int _action = 0;
     private string _wordFileName;
 
+    // Constructors
+    // public ListMenu(string menu, string userInput, int userChoice, int action, string wordFileName) : base(menu, userInput, userChoice, action)
+    // {
+    //     _wordFileName = wordFileName;
+    // }
+
     // Methods
-    public int ListChoice()
+    public int UserChoice()
     // Method to display choices to user
     {
         Console.Clear();  // This will clear the console
         Console.Write(_menu);
 
-        _listInput = Console.ReadLine();
-        _listChoice = 0;
+        _userInput = Console.ReadLine();
+        _userChoice = 0;
         // This block catches any non integer values that are entered
         try
         {
-            _listChoice = int.Parse(_listInput);
+            _userChoice = int.Parse(_userInput);
         }
         catch (FormatException)
         {
-            _listChoice = 0;
+            _userChoice = 0;
         }
         catch (Exception exception)
         {
             Console.WriteLine(
                 $"Unexpected error:  {exception.Message}");
         }
-        return _listChoice;
+        return _userChoice;
     }
 
-    public void ListMenuChoice()
+    public void MenuChoice()
     {
         while (_action != 4)
         // switch case for list menu
         {
             Hangman game = new Hangman();
-            _action = ListChoice();
+            _action = UserChoice();
             switch (_action)
             {
                 case 1:

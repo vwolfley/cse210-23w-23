@@ -13,39 +13,44 @@ Your Game Options are:
 ===========================================
 Which game would you like to play?  ";
 
-    public string _gameInput;
-    private int _gameChoice = 0;
+    private string _userInput;
+    private int _userChoice = 0;
     private int _action = 0;
-
     private string _wordFileName;
 
+    // Constructors
+    // public GameMenu(string menu, string userInput, int userChoice, int action, string wordFileName) : base(menu, userInput, userChoice, action)
+    // {
+    //     _wordFileName = wordFileName;
+    // }
+
     // Methods
-    public int GameChoice()
+    public int UserChoice()
     // Method to display choices to user
     {
         Console.Clear();  // This will clear the console
         Console.Write(_menu);
 
-        _gameInput = Console.ReadLine();
-        _gameChoice = 0;
+        _userInput = Console.ReadLine();
+        _userChoice = 0;
         // This block catches any non integer values that are entered
         try
         {
-            _gameChoice = int.Parse(_gameInput);
+            _userChoice = int.Parse(_userInput);
         }
         catch (FormatException)
         {
-            _gameChoice = 0;
+            _userChoice = 0;
         }
         catch (Exception exception)
         {
             Console.WriteLine(
                 $"Unexpected error:  {exception.Message}");
         }
-        return _gameChoice;
+        return _userChoice;
     }
 
-    public void GameMenuChoice()
+    public void MenuChoice()
     {
         // Call ListMenu
         ListMenu listMenu = new ListMenu();
@@ -53,20 +58,20 @@ Which game would you like to play?  ";
         while (_action != 3)
         // switch case for goals menu
         {
-            _action = GameChoice();
+            _action = UserChoice();
             switch (_action)
             {
                 case 1:
                     // Random Words
                     // start game
-                    _wordFileName ="words2.txt";
+                    _wordFileName = "words2.txt";
                     Hangman game = new Hangman();
                     game.StartGame(_wordFileName);
                     break;
                 case 2:
                     // Pick your word topic
                     Console.Clear();  // This will clear the console
-                    listMenu.ListMenuChoice();
+                    listMenu.MenuChoice();
                     break;
                 case 3:
                     // Back to Main Menu

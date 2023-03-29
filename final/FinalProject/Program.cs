@@ -11,7 +11,7 @@ class Program
         
         // Print welcome message
         choice.PrintWelcome();
-        choice.MainMenuChoice();
+        choice.MenuChoice();
 
     }
 }

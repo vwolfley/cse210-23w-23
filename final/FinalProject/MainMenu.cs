@@ -13,14 +13,15 @@ Please select one of the following options:
 4. Quit
 ===========================================
 Select an option from the menu:  ";
-
+    private string _userInput;
+    private int _userChoice = 0;
+    private int _action = 0;
     private string _welcome = @"
 *******************************************
 ***                                     ***
 ***          Welcome to Hangman         ***
 ***                                     ***
 *******************************************";
-
     private string _goodbye = @"
 *******************************************
 ***                                     ***
@@ -28,9 +29,11 @@ Select an option from the menu:  ";
 ***                                     ***
 *******************************************";
 
-    public string _userInput;
-    private int _userChoice = 0;
-    private int _action = 0;
+    // Constructors
+    // public MainMenu(string menu, string userInput, int userChoice, int action) : base(menu, userInput, userChoice, action)
+    // {
+
+    // }
 
     // Methods
     public int UserChoice()
@@ -57,10 +60,10 @@ Select an option from the menu:  ";
         return _userChoice;
     }
 
-    public void MainMenuChoice()
+    public void MenuChoice()
     {
         // Call GameMenu
-        GameMenu gameChoice = new GameMenu();
+        GameMenu gameMenu = new GameMenu();
 
         while (_action != 4)
         // switch case for main menu
@@ -72,11 +75,12 @@ Select an option from the menu:  ";
                 case 1:
                     // Play Game - Untimed
                     Console.Clear();  // This will clear the console
-                    gameChoice.GameMenuChoice();
+                    gameMenu.MenuChoice();
                     break;
                 case 2:
                     // Play Game - Timed
-                    gameChoice.GameMenuChoice();
+                    Console.Clear();  // This will clear the console
+                    gameMenu.MenuChoice();
                     break;
                 case 3:
                     // How to Play
