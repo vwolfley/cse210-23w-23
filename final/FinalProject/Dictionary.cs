@@ -6,9 +6,9 @@ public class Dictionary
     private List<string> _dictionary = new List<string> ();
    
     // Constructors
-    public List<string> GetList()
+    public List<string> GetList(string fileName)
     {
-        LoadWords();
+        LoadWords(fileName);
         return _dictionary;
     }
     public void AddWord(string word)
@@ -17,10 +17,10 @@ public class Dictionary
     }
     // Methods
 
-    public void LoadWords()
+    public void LoadWords(string fileName)
     {
         // Get file with words
-        string fileName = "words2.txt";
+        // string fileName = "words2.txt";
         // Read file into dictionary
         string[] readText = File.ReadAllLines(fileName);
 

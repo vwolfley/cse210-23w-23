@@ -22,16 +22,16 @@ public class Hangman
     }
     // Methods
 
-    public void StartGame()
+    public void StartGame(string fileName)
     {
         Console.Clear();  // This will clear the console
-        SelectRandomWord();
+        SelectRandomWord(fileName);
         // DisplayRandomWord();
         player.ShowRandomWord();
         do
         {
             Console.Clear();  // This will clear the console
-            DisplayRandomWord();
+            // DisplayRandomWord();
             ShowGallows();
             ShowLettersGuessesRight();
             ShowLettersGuessedWrong();
@@ -45,9 +45,9 @@ public class Hangman
 
 
     }
-    private void SelectRandomWord()
+    private void SelectRandomWord(string fileName)
     {
-        player.randomWord = randomWord.GetRandomWord();
+        player.randomWord = randomWord.GetRandomWord(fileName);
     }
     private void DisplayRandomWord()
     {

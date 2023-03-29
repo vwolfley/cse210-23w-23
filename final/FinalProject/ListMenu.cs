@@ -16,6 +16,7 @@ Your list Options are:
     public string _listInput;
     private int _listChoice = 0;
     private int _action = 0;
+    private string _wordFileName;
 
     // Methods
     public int ListChoice()
@@ -48,17 +49,24 @@ Your list Options are:
         while (_action != 4)
         // switch case for list menu
         {
+            Hangman game = new Hangman();
             _action = ListChoice();
             switch (_action)
             {
                 case 1:
-                    Console.WriteLine("Success Choice 1!");
+                    // Console.WriteLine("Success Choice 1!");
+                    _wordFileName = "colors.txt";
+                    game.StartGame(_wordFileName);
                     break;
                 case 2:
-                    Console.WriteLine("Success Choice 2!");
+                    _wordFileName = "sports.txt";
+                    game.StartGame(_wordFileName);
+                    // Console.WriteLine("Success Choice 2!");
                     break;
                 case 3:
-                    Console.WriteLine("Success Choice 3!");
+                    _wordFileName = "seasons.txt";
+                    game.StartGame(_wordFileName);
+                    // Console.WriteLine("Success Choice 3!");
                     break;
                 case 4:
                     // Back to Main Menu

@@ -17,6 +17,8 @@ Which game would you like to play?  ";
     private int _gameChoice = 0;
     private int _action = 0;
 
+    private string _wordFileName;
+
     // Methods
     public int GameChoice()
     // Method to display choices to user
@@ -57,8 +59,9 @@ Which game would you like to play?  ";
                 case 1:
                     // Random Words
                     // start game
+                    _wordFileName ="words2.txt";
                     Hangman game = new Hangman();
-                    game.StartGame();
+                    game.StartGame(_wordFileName);
                     break;
                 case 2:
                     // Pick your word topic

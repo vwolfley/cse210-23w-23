@@ -14,7 +14,7 @@ almost
 among
 amount
 amusement
-Android
+android
 angle
 angry
 animal
@@ -48,7 +48,7 @@ behaviour
 belief
 bell
 bent
-Bernhard
+bernhard
 berry
 between
 bird
@@ -74,7 +74,7 @@ branch
 brass
 bread
 breath
-Breytenbach
+breytenbach
 brick
 bridge
 bright
