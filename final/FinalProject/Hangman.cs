@@ -26,13 +26,16 @@ public class Hangman
     {
         Console.Clear();  // This will clear the console
         SelectRandomWord();
-        DisplayRandomWord();
+        // DisplayRandomWord();
         player.ShowRandomWord();
         do
         {
+            Console.Clear();  // This will clear the console
+            DisplayRandomWord();
             ShowGallows();
             ShowLettersGuessesRight();
             ShowLettersGuessedWrong();
+            ShowNumberOfGuesses();
             PromptPlayerForLetter();
             CheckPlayerGuess();
         } while (!player.GameOver());
@@ -79,12 +82,9 @@ public class Hangman
         }
     }
 
-
-
-
-    private void DisplayResults()
+    private void ShowNumberOfGuesses()
     {
-
+        Console.Write($"\nGuesses Left = {player.wrongGuessCount}/6\n");
     }
 
     private void ShowGallows()

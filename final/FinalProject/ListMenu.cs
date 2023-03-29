@@ -1,71 +1,66 @@
 using System;
 
-public class GameMenu
+public class ListMenu
 {
     // Attributes 
     private string _menu = $@"
-                Game Options
+                List Options
 ===========================================
-Your Game Options are:
-1. Random Words
-2. Pick your word topic
-3. Back to Main Menu
-===========================================
-Which game would you like to play?  ";
+Your list Options are:
+1. Colors
+2. Sports
+3. Seasons
+4. Back to Main Menu
+===========================================";
 
-    public string _gameInput;
-    private int _gameChoice = 0;
+    public string _listInput;
+    private int _listChoice = 0;
     private int _action = 0;
 
     // Methods
-    public int GameChoice()
+    public int ListChoice()
     // Method to display choices to user
     {
         Console.Clear();  // This will clear the console
         Console.Write(_menu);
 
-        _gameInput = Console.ReadLine();
-        _gameChoice = 0;
+        _listInput = Console.ReadLine();
+        _listChoice = 0;
         // This block catches any non integer values that are entered
         try
         {
-            _gameChoice = int.Parse(_gameInput);
+            _listChoice = int.Parse(_listInput);
         }
         catch (FormatException)
         {
-            _gameChoice = 0;
+            _listChoice = 0;
         }
         catch (Exception exception)
         {
             Console.WriteLine(
                 $"Unexpected error:  {exception.Message}");
         }
-        return _gameChoice;
+        return _listChoice;
     }
 
-    public void GameMenuChoice()
+    public void ListMenuChoice()
     {
-        // Call ListMenu
-        ListMenu listMenu = new ListMenu();
-
-        while (_action != 3)
-        // switch case for goals menu
+        while (_action != 4)
+        // switch case for list menu
         {
-            _action = GameChoice();
+            _action = ListChoice();
             switch (_action)
             {
                 case 1:
-                    // Random Words
-                    // start game
-                    Hangman game = new Hangman();
-                    game.StartGame();
+                    Console.WriteLine("Success Choice 1!");
                     break;
                 case 2:
-                    // Pick your word topic
-                    Console.Clear();  // This will clear the console
-                    listMenu.ListMenuChoice();
+                    Console.WriteLine("Success Choice 2!");
                     break;
                 case 3:
+                    Console.WriteLine("Success Choice 3!");
+                    break;
+                case 4:
                     // Back to Main Menu
                     Console.Clear();  // This will clear the console
                     break;

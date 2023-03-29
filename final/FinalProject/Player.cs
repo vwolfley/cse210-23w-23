@@ -58,6 +58,11 @@ public class Player
                     correctLetter = true;
                 }
             }
+            //Test for blank spaces ???
+            // if (!correctLetter & char.IsWhiteSpace(randomWord[i]))
+            // {
+            //     sb.Append("  ");
+            // }
             if (!correctLetter)
             {
                 sb.Append("_ ");
