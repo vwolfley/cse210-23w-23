@@ -3,12 +3,6 @@ using System;
 public class MainMenu
 {
     // Attributes
-    private string _welcome = @"
-*******************************************
-***                                     ***
-***          Welcome to Hangman         ***
-***                                     ***
-*******************************************";
     private string _menu = $@"
              Main Menu Options
 ===========================================
@@ -19,6 +13,20 @@ Please select one of the following options:
 4. Quit
 ===========================================
 Select an option from the menu:  ";
+
+    private string _welcome = @"
+*******************************************
+***                                     ***
+***          Welcome to Hangman         ***
+***                                     ***
+*******************************************";
+
+    private string _goodbye = @"
+*******************************************
+***                                     ***
+***    Thank you for playing Hangman!   ***
+***                                     ***
+*******************************************";
 
     public string _userInput;
     private int _userChoice = 0;
@@ -49,17 +57,11 @@ Select an option from the menu:  ";
         return _userChoice;
     }
 
-    public void PrintWelcome()
-    {
-        Console.Clear();  // This will clear the console
-        Console.Write($"{_welcome}\n\n");
-    }
-
     public void MainMenuChoice()
     {
         // Call GameMenu
         GameMenu gameChoice = new GameMenu();
-        
+
         while (_action != 4)
         // switch case for main menu
         {
@@ -83,12 +85,22 @@ Select an option from the menu:  ";
                     break;
                 case 4:
                     // Quite
-                    Console.WriteLine("\nThank you for playing Hangman!\n");
+                    PrintGoodbye();
                     break;
                 default:
                     Console.WriteLine($"\nSorry the option you entered is not valid.");
                     break;
             }
         }
+    }
+    public void PrintWelcome()
+    {
+        Console.Clear();  // This will clear the console
+        Console.Write($"{_welcome}\n\n");
+    }
+    public void PrintGoodbye()
+    {
+        Console.Clear();  // This will clear the console
+        Console.Write($"{_goodbye}\n\n");
     }
 }

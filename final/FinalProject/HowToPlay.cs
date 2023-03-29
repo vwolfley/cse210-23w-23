@@ -32,6 +32,7 @@ The Points
         var input = Console.ReadKey();
         if (input.Key == ConsoleKey.Enter)
         {
+            Console.Clear();  // This will clear the console
             // Return to main menu
         }
     }
