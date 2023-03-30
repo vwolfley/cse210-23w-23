@@ -40,7 +40,7 @@ public class Player
     }
     public bool GameOver()
     {
-        return ((wrongGuessCount == 6) || (correctGuessCount == randomWord.Length));
+        return ((wrongGuessCount == 7) || (correctGuessCount == randomWord.Length));
     }
 
     public void ShowRandomWord()

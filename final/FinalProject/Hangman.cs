@@ -84,7 +84,7 @@ public class Hangman
 
     private void ShowNumberOfGuesses()
     {
-        Console.Write($"\nGuesses Left = {player.wrongGuessCount}/6\n");
+        Console.Write($"\nGuesses Left = {player.wrongGuessCount}/7\n");
     }
 
     private void ShowGallows()
@@ -114,6 +114,7 @@ public class Hangman
             Console.WriteLine("*** Sorry, you lost! ***");
         }
         ShowGallows();
+        ShowNumberOfGuesses();
         Console.Write($"\nThe word was - {player.randomWord}\n");
 
     }

@@ -10,8 +10,9 @@ Your list Options are:
 1. Colors
 2. Sports
 3. Seasons
-4. Back to Main Menu
-===========================================";
+4. Back to Game Menu
+===========================================
+Which list would you like to use?  ";
 
     private string _userInput;
     private int _userChoice = 0;

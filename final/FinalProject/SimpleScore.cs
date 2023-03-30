@@ -33,5 +33,11 @@ public class SimpleScore : ScoringRules
 
     }
 
+    public void Score()
+    // Number of guesses * 3pts
+    {
+
+    }
+
 
 }

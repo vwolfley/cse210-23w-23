@@ -10,12 +10,9 @@ public abstract class Menu
 
 
     // Constructors
-    public Menu(string menu, string userInput, int userChoice, int action)
+    public Menu(string menu)
     {
         _menu = menu;
-        _userInput = userInput;
-        _userChoice = userChoice;
-        _action = action;
     }
     public string GetMenu()
     {

@@ -34,6 +34,10 @@ Select an option from the menu:  ";
     // {
 
     // }
+    //  public MainMenu(string menu) : base(menu)
+    // {
+    //     _menu = menu;
+    // }
 
     // Methods
     public int UserChoice()

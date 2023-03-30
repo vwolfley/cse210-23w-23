@@ -7,18 +7,10 @@ public class GallowsRenderer
     // Methods
     public void ShowGallows(int wrongGuessCount)
     {
-        if (wrongGuessCount == 0)
+        if (wrongGuessCount == 1)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine("    |");
-            Console.WriteLine("    |");
-            Console.WriteLine("    |");
-            Console.WriteLine("   ===");
-        }
-        else if (wrongGuessCount == 1)
-        {
-            Console.WriteLine("\n+---+");
-            Console.WriteLine("O   |");
             Console.WriteLine("    |");
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
@@ -27,15 +19,15 @@ public class GallowsRenderer
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine("O   |");
-            Console.WriteLine("|   |");
+            Console.WriteLine("    |");
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
         else if (wrongGuessCount == 3)
         {
             Console.WriteLine("\n+---+");
-            Console.WriteLine(" O  |");
-            Console.WriteLine("/|  |");
+            Console.WriteLine("O   |");
+            Console.WriteLine("|   |");
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
@@ -43,7 +35,7 @@ public class GallowsRenderer
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine(" O  |");
-            Console.WriteLine("/|\\ |");
+            Console.WriteLine("/|  |");
             Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
@@ -52,10 +44,18 @@ public class GallowsRenderer
             Console.WriteLine("\n+---+");
             Console.WriteLine(" O  |");
             Console.WriteLine("/|\\ |");
-            Console.WriteLine("/   |");
+            Console.WriteLine("    |");
             Console.WriteLine("   ===");
         }
         else if (wrongGuessCount == 6)
+        {
+            Console.WriteLine("\n+---+");
+            Console.WriteLine(" O  |");
+            Console.WriteLine("/|\\ |");
+            Console.WriteLine("/   |");
+            Console.WriteLine("   ===");
+        }
+        else if (wrongGuessCount == 7)
         {
             Console.WriteLine("\n+---+");
             Console.WriteLine(" O   |");
@@ -64,6 +64,4 @@ public class GallowsRenderer
             Console.WriteLine("    ===");
         }
     }
-
-
 }

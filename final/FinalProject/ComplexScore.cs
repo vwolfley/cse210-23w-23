@@ -64,6 +64,20 @@ public class ComplexScore : ScoringRules
 
     }
 
+    public void ScoreComplex()
+    // Number of guesses * 3pts
+    // Plus 1 pt for each letter in the word
+    {
+
+    }
+
+    public void ScrabbleScore()
+     // Number of guesses * 3pts
+     // Plus letter value for each letter in the word guessed
+    {
+
+    }
+
 
 
 
