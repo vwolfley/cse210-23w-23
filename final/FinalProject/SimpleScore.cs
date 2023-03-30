@@ -3,15 +3,15 @@ using System;
 public class SimpleScore : ScoringRules
 {
     // Attributes
-    private string _type = "Simple Score:";
     private bool _status;
+    private int _numCorrect = 0;
 
     // Constructors
-    public SimpleScore(string type, int points) : base(type, points)
+    public SimpleScore(int points) : base(points)
     {
         _status = false;
     }
-    public SimpleScore(string type, int points, bool status) : base(type, points)
+    public SimpleScore(int points, bool status) : base(points)
     {
         _status = status;
     }
@@ -21,6 +21,17 @@ public class SimpleScore : ScoringRules
     }
 
     // Methods
-    
+    public void ScoreCorrectWord()
+    // You can score up to 10 points for each correct word. 
+    {
+
+    }
+
+    public void BonusScore()
+    // You can score CorrectScoreWord x 2 for each correct word. 
+    {
+
+    }
+
 
 }

@@ -3,15 +3,14 @@ using System;
 public class TimedScore : ScoringRules
 {
     // Attributes
-    private string _type = "Timed Score:";
     private bool _status;
 
     // Constructors
-    public TimedScore(string type, int points) : base(type, points)
+    public TimedScore(int points) : base(points)
     {
         _status = false;
     }
-    public TimedScore(string type, int points, bool status) : base(type, points)
+    public TimedScore(int points, bool status) : base(points)
     {
         _status = status;
     }
@@ -21,6 +20,16 @@ public class TimedScore : ScoringRules
     }
 
     // Methods
+    public void ScoreCorrectWord()
+    // You can score up to 10 points for each correct word. 
+    {
+
+    }
+     public void BonusScore()
+    // You can score CorrectScoreWord x 2 for each correct word. 
+    {
+
+    }
     
 
 }

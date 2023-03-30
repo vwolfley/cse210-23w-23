@@ -35,8 +35,7 @@ adventure
 advertising
 adviser
 advocate
-African
-African-American
+african
 afternoon
 against
 aggressive
@@ -51,7 +50,7 @@ already
 alternative
 although
 amazing
-American
+american
 analysis
 analyst
 analyze
@@ -137,14 +136,14 @@ breakfast
 breathe
 briefly
 brilliant
-British
+british
 brother
 building
 business
 cabinet
 calculate
 campaign
-Canadian
+canadian
 candidate
 capability
 capable
@@ -156,7 +155,7 @@ careful
 carefully
 carrier
 category
-Catholic
+catholic
 ceiling
 celebrate
 celebration
@@ -181,11 +180,11 @@ charity
 chemical
 chicken
 childhood
-Chinese
+chinese
 chocolate
 cholesterol
-Christian
-Christmas
+christian
+christmas
 cigarette
 circumstance
 citizen
@@ -258,7 +257,7 @@ confirm
 conflict
 confront
 confusion
-Congress
+congress
 congressional
 connect
 connection
@@ -347,7 +346,7 @@ definition
 deliver
 delivery
 democracy
-Democrat
+democrat
 democratic
 demonstrate
 demonstration
@@ -454,7 +453,7 @@ encourage
 enforcement
 engineer
 engineering
-English
+english
 enhance
 enormous
 enterprise
@@ -472,7 +471,7 @@ essentially
 establish
 establishment
 estimate
-European
+european
 evaluate
 evaluation
 evening
@@ -683,7 +682,7 @@ interested
 interesting
 internal
 international
-Internet
+internet
 interpret
 interpretation
 intervention
@@ -699,10 +698,10 @@ investor
 involve
 involved
 involvement
-Islamic
-Israeli
-Italian
-Japanese
+islamic
+israeli
+italian
+japanese
 journal
 journalist
 journey
@@ -761,7 +760,7 @@ meeting
 membership
 mention
 message
-Mexican
+mexican
 military
 million
 minister
@@ -821,7 +820,7 @@ offense
 offensive
 officer
 official
-Olympic
+olympic
 ongoing
 opening
 operate
@@ -851,7 +850,7 @@ package
 painful
 painter
 painting
-Palestinian
+palestinian
 parking
 participant
 participate
@@ -1044,7 +1043,7 @@ reporter
 represent
 representation
 representative
-Republican
+republican
 reputation
 request
 require
@@ -1074,7 +1073,7 @@ romantic
 roughly
 routine
 running
-Russian
+russian
 sanction
 satellite
 satisfaction
@@ -1131,7 +1130,7 @@ somewhat
 somewhere
 sophisticated
 southern
-Spanish
+spanish
 speaker
 special
 specialist
@@ -1179,7 +1178,7 @@ support
 supporter
 suppose
 supposed
-Supreme
+supreme
 surface
 surgery
 surprise
