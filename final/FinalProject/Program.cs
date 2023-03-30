@@ -7,10 +7,8 @@ class Program
     static void Main(string[] args)
     {
         // Call MainMenu
-        MainMenu choice = new MainMenu();
+        Menu choice = new MainMenu();
         
-        // Print welcome message
-        choice.PrintWelcome();
         choice.MenuChoice();
 
     }

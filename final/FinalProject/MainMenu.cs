@@ -1,6 +1,6 @@
 using System;
 
-public class MainMenu
+public class MainMenu : Menu
 {
     // Attributes
     private string _menu = $@"
@@ -13,9 +13,7 @@ Please select one of the following options:
 4. Quit
 ===========================================
 Select an option from the menu:  ";
-    private string _userInput;
-    private int _userChoice = 0;
-    private int _action = 0;
+
     private string _welcome = @"
 *******************************************
 ***                                     ***
@@ -30,17 +28,9 @@ Select an option from the menu:  ";
 *******************************************";
 
     // Constructors
-    // public MainMenu(string menu, string userInput, int userChoice, int action) : base(menu, userInput, userChoice, action)
-    // {
-
-    // }
-    //  public MainMenu(string menu) : base(menu)
-    // {
-    //     _menu = menu;
-    // }
 
     // Methods
-    public int UserChoice()
+    public override int UserChoice()
     // Method to display choices to user
     {
         Console.Write(_menu);
@@ -64,10 +54,12 @@ Select an option from the menu:  ";
         return _userChoice;
     }
 
-    public void MenuChoice()
+    public override void MenuChoice()
     {
         // Call GameMenu
-        GameMenu gameMenu = new GameMenu();
+        Menu gameMenu = new GameMenu();
+        // Print welcome message
+        PrintWelcome();
 
         while (_action != 4)
         // switch case for main menu
@@ -101,12 +93,12 @@ Select an option from the menu:  ";
             }
         }
     }
-    public void PrintWelcome()
+    private void PrintWelcome()
     {
         Console.Clear();  // This will clear the console
         Console.Write($"{_welcome}\n\n");
     }
-    public void PrintGoodbye()
+    private void PrintGoodbye()
     {
         Console.Clear();  // This will clear the console
         Console.Write($"{_goodbye}\n\n");

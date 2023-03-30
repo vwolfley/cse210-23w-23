@@ -1,6 +1,6 @@
 using System;
 
-public class ListMenu
+public class ListMenu : Menu
 {
     // Attributes 
     private string _menu = $@"
@@ -14,19 +14,10 @@ Your list Options are:
 ===========================================
 Which list would you like to use?  ";
 
-    private string _userInput;
-    private int _userChoice = 0;
-    private int _action = 0;
-    private string _wordFileName;
-
     // Constructors
-    // public ListMenu(string menu, string userInput, int userChoice, int action, string wordFileName) : base(menu, userInput, userChoice, action)
-    // {
-    //     _wordFileName = wordFileName;
-    // }
 
     // Methods
-    public int UserChoice()
+    public override int UserChoice()
     // Method to display choices to user
     {
         Console.Clear();  // This will clear the console
@@ -51,7 +42,7 @@ Which list would you like to use?  ";
         return _userChoice;
     }
 
-    public void MenuChoice()
+    public override void MenuChoice()
     {
         while (_action != 4)
         // switch case for list menu

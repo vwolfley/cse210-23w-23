@@ -3,16 +3,17 @@ using System;
 public abstract class Menu
 {
     // Attributes
-    private string _menu;
-    private string _userInput;
-    private int _userChoice = 0;
-    private int _action = 0;
+    protected string _menu;
+    protected string _userInput;
+    protected int _userChoice = 0;
+    protected int _action = 0;
+    protected string _wordFileName;
 
 
     // Constructors
-    public Menu(string menu)
+    public Menu()
     {
-        _menu = menu;
+
     }
     public string GetMenu()
     {
@@ -30,11 +31,13 @@ public abstract class Menu
     {
         return _action;
     }
+     public string GetWordFileName()
+    {
+        return _wordFileName;
+    }
 
     // Methods
     public abstract int UserChoice();
-
     public abstract void MenuChoice();
-    
 
 }

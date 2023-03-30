@@ -32,6 +32,7 @@ public class Hangman
         {
             Console.Clear();  // This will clear the console
             // DisplayRandomWord();
+            ShowTitle();
             ShowGallows();
             ShowLettersGuessesRight();
             ShowLettersGuessedWrong();
@@ -84,7 +85,7 @@ public class Hangman
 
     private void ShowNumberOfGuesses()
     {
-        Console.Write($"\nGuesses Left = {player.wrongGuessCount}/7\n");
+        Console.WriteLine($"\nGuesses Left = {player.wrongGuessCount}/7\n");
     }
 
     private void ShowGallows()
@@ -102,6 +103,11 @@ public class Hangman
         Console.WriteLine($"\n{player.wrongGuesses}\n");
     }
 
+    private void ShowTitle()
+    {
+        Console.WriteLine($"*** Lets Play Hangman ***\n");
+    }
+
     private void GameOver()
     {
         Console.Clear();  // This will clear the console
@@ -115,7 +121,7 @@ public class Hangman
         }
         ShowGallows();
         ShowNumberOfGuesses();
-        Console.Write($"\nThe word was - {player.randomWord}\n");
+        Console.WriteLine($"\nThe word was - {player.randomWord}\n");
 
     }
 
