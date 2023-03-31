@@ -37,6 +37,7 @@ public class Hangman
             ShowLettersGuessesRight();
             ShowLettersGuessedWrong();
             ShowNumberOfGuesses();
+            ShowPlayerScore();
             PromptPlayerForLetter();
             CheckPlayerGuess();
         } while (!player.GameOver());
@@ -108,6 +109,15 @@ public class Hangman
         Console.WriteLine($"*** Lets Play Hangman ***\n");
     }
 
+    private void ShowPlayerScore()
+    {
+        if (player.PlayerWon())
+        {
+            player.score++;
+        }
+        Console.WriteLine($"\nYour current score:  {player.score}\n");
+    }
+
     private void GameOver()
     {
         Console.Clear();  // This will clear the console
@@ -122,6 +132,7 @@ public class Hangman
         ShowGallows();
         ShowNumberOfGuesses();
         Console.WriteLine($"\nThe word was - {player.randomWord}\n");
+        ShowPlayerScore();
 
     }
 

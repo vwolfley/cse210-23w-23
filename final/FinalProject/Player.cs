@@ -15,6 +15,8 @@ public class Player
     public string wrongGuesses { get; set; }
     public int wrongGuessCount;
     public int correctGuessCount;
+    public int numberWordsGuessed;
+    public int score;
     // Constructors
     public Player()
     {
@@ -27,6 +29,8 @@ public class Player
         wrongGuesses = string.Empty;
         wrongGuessCount = 0;
         correctGuessCount = 0;
+        numberWordsGuessed = 0;
+        score = 0;
     }
     // Methods
 
@@ -74,8 +78,6 @@ public class Player
         }
         showRandomWord = sb.ToString();
     }
-
-
     public void CheckLatestGuess(string newGuess)
     {
         bool correctLetter = false;

@@ -3,7 +3,7 @@ using System;
 public class GameMenu : Menu
 {
     // Attributes 
-    private string _menu = $@"
+    private new string _menu = $@"
                 Game Options
 ===========================================
 Your Game Options are:
@@ -15,33 +15,11 @@ Which game would you like to play?  ";
 
     // Constructors
 
-
     // Methods
-    public override int UserChoice()
-    // Method to display choices to user
+    public override void DisplayMenu()
     {
-        Console.Clear();  // This will clear the console
         Console.Write(_menu);
-
-        _userInput = Console.ReadLine();
-        _userChoice = 0;
-        // This block catches any non integer values that are entered
-        try
-        {
-            _userChoice = int.Parse(_userInput);
-        }
-        catch (FormatException)
-        {
-            _userChoice = 0;
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(
-                $"Unexpected error:  {exception.Message}");
-        }
-        return _userChoice;
     }
-
     public override void MenuChoice()
     {
         // Call ListMenu

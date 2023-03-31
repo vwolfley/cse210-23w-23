@@ -3,41 +3,42 @@ using System;
 public abstract class Menu
 {
     // Attributes
-    protected string _menu;
-    protected string _userInput;
-    protected int _userChoice = 0;
-    protected int _action = 0;
-    protected string _wordFileName;
+    public string _menu { get; set; }
+    protected string _userInput { get; set; }
+    protected int _userChoice;
+    protected int _action;
+    protected string _wordFileName { get; set; }
 
 
     // Constructors
-    public Menu()
-    {
 
-    }
-    public string GetMenu()
-    {
-        return _menu;
-    }
-    public string GetUserInput()
-    {
-        return _userInput;
-    }
-    public int GetUserChoice()
-    {
-        return _userChoice;
-    }
-    public int GetAction()
-    {
-        return _action;
-    }
-     public string GetWordFileName()
-    {
-        return _wordFileName;
-    }
 
     // Methods
-    public abstract int UserChoice();
+    // public abstract int UserChoice();
+    public abstract void DisplayMenu();
+    public int UserChoice()
+    // Method to display choices to user
+    {
+        DisplayMenu();
+
+        _userInput = Console.ReadLine();
+        _userChoice = 0;
+        // This block catches any non integer values that are entered
+        try
+        {
+            _userChoice = int.Parse(_userInput);
+        }
+        catch (FormatException)
+        {
+            _userChoice = 0;
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(
+                $"Unexpected error:  {exception.Message}");
+        }
+        return _userChoice;
+    }
     public abstract void MenuChoice();
 
 }

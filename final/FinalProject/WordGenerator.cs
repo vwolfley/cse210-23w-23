@@ -5,8 +5,7 @@ public class WordGenerator
     // Attributes
     private string _randomWord;
     private int _index;
-    private int _counter;
-    private int _rightLetters;
+
     // Constructors
 
     // Methods
@@ -27,8 +26,5 @@ public class WordGenerator
     {
         return _randomWord.Length;
     }
-    
-
-
 
 }

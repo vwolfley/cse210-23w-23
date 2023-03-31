@@ -3,21 +3,20 @@ using System;
 public abstract class ScoringRules
 {
     // Attributes
-    private int _points;
+    private int _score;
+    private Player player;
 
 
     // Constructors
-    public ScoringRules(int points)
+    public ScoringRules(int score)
     {
-        _points = points;
+         player = new Player();
+         _score = score;
     }
-    public int GetPoints()
-    {
-        return _points;
-    }
-
+    
 
     // Methods
+    // public abstract int GetScore();
     
 
 }
