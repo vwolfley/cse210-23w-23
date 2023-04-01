@@ -1,21 +1,21 @@
 using System;
 using System.Threading;
 
-public class TimedScore : ScoringRules
+public class ScoreTimed
 {
     // Attributes
     private Timer _timer = null;
     private bool _status;
 
     // Constructors
-    public TimedScore(int points) : base(points)
-    {
-        _status = false;
-    }
-    public TimedScore(int points, bool status) : base(points)
-    {
-        _status = status;
-    }
+    // public TimedScore(int points) : base(points)
+    // {
+    //     _status = false;
+    // }
+    // public TimedScore(int points, bool status) : base(points)
+    // {
+    //     _status = status;
+    // }
     public Boolean Finished()
     {
         return _status;

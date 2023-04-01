@@ -3,20 +3,16 @@ using System;
 public abstract class ScoringRules
 {
     // Attributes
-    private int _score;
-    private Player player;
 
 
     // Constructors
-    public ScoringRules(int score)
-    {
-         player = new Player();
-         _score = score;
-    }
-    
+
 
     // Methods
-    // public abstract int GetScore();
-    
+    public abstract int CalculateScore(int numGuesses, List<string> letters);
+
+    public abstract void ShowScore();
+
+
 
 }

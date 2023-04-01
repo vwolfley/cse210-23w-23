@@ -11,6 +11,11 @@ public class Hangman
     private GallowsRenderer gallowsRenderer;
     private WordGenerator randomWord;
     private PrintLines printLines;
+    // private ScoreBoard scoreBoard;
+    private ScoreBoard simpleScoreboard = new ScoreBoard(new ScoreSimple());
+    private ScoreBoard complexScoreboard = new ScoreBoard(new ScoreComplex());
+
+
 
     // Constructors
     public Hangman()
@@ -37,14 +42,13 @@ public class Hangman
             ShowLettersGuessesRight();
             ShowLettersGuessedWrong();
             ShowNumberOfGuesses();
-            ShowPlayerScore();
+            // ShowPlayerScore();
             PromptPlayerForLetter();
             CheckPlayerGuess();
         } while (!player.GameOver());
 
         GameOver();
         PlayAgain();
-
 
     }
     private void SelectRandomWord(string fileName)
@@ -111,11 +115,9 @@ public class Hangman
 
     private void ShowPlayerScore()
     {
-        if (player.PlayerWon())
-        {
-            player.score++;
-        }
-        Console.WriteLine($"\nYour current score:  {player.score}\n");
+        simpleScoreboard.DisplayScore(player.correctGuessCount, player.rightGuessList);
+        complexScoreboard.DisplayScore(player.correctGuessCount, player.rightGuessList); 
+
     }
 
     private void GameOver()
