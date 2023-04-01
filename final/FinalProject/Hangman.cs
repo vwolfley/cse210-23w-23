@@ -11,10 +11,9 @@ public class Hangman
     private GallowsRenderer gallowsRenderer;
     private WordGenerator randomWord;
     private PrintLines printLines;
-    // private ScoreBoard scoreBoard;
-    private ScoreBoard simpleScoreboard = new ScoreBoard(new ScoreSimple());
-    private ScoreBoard complexScoreboard = new ScoreBoard(new ScoreComplex());
-
+    private ScoreBoard simpleScore = new ScoreBoard(new ScoreSimple());
+    private ScoreBoard complexScore = new ScoreBoard(new ScoreComplex());
+    private ScoreBoard scrabbleScore = new ScoreBoard(new ScoreScrabble());
 
 
     // Constructors
@@ -84,7 +83,7 @@ public class Hangman
         var input = Console.ReadKey();
         if (input.Key == ConsoleKey.Enter)
         {
-            // StartGame();
+            Console.Clear();  // This will clear the console
         }
     }
 
@@ -115,9 +114,18 @@ public class Hangman
 
     private void ShowPlayerScore()
     {
-        simpleScoreboard.DisplayScore(player.correctGuessCount, player.rightGuessList);
-        complexScoreboard.DisplayScore(player.correctGuessCount, player.rightGuessList); 
-
+        if (!player.PlayerLost())
+        {
+            simpleScore.DisplayScore(player.correctGuessCount, player.rightGuessList, player.randomWord);
+            scrabbleScore.DisplayScore(player.correctGuessCount, player.rightGuessList, player.randomWord);
+            complexScore.DisplayScore(player.correctGuessCount, player.rightGuessList, player.randomWord);
+        }
+        else
+        {
+            simpleScore.DisplayScore(0, player.emptyList, player.randomWord);
+            scrabbleScore.DisplayScore(0, player.emptyList, player.randomWord);
+            complexScore.DisplayScore(0, player.emptyList, player.randomWord);
+        }
     }
 
     private void GameOver()
@@ -135,7 +143,6 @@ public class Hangman
         ShowNumberOfGuesses();
         Console.WriteLine($"\nThe word was - {player.randomWord}\n");
         ShowPlayerScore();
-
     }
 
 

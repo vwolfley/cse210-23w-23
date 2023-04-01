@@ -3,64 +3,32 @@ using System;
 public class ScoreComplex : ScoringRules
 {
     // Attributes
-    Dictionary<string, int> scrabble = new Dictionary<string, int>()
-        {
-            {"e", 1},
-            {"a", 1},
-            {"i", 1},
-            {"o", 1},
-            {"n", 1},
-            {"r", 1},
-            {"t", 1},
-            {"l", 1},
-            {"s", 1},
-            {"u", 1},
-            {"d", 2},
-            {"g", 2},
-            {"b", 3},
-            {"c", 3},
-            {"m", 3},
-            {"p", 3},
-            {"f", 4},
-            {"h", 4},
-            {"v", 4},
-            {"w", 4},
-            {"y", 4},
-            {"k", 5},
-            {"j", 8},
-            {"x", 8},
-            {"q", 10},
-            {"z", 10}
-        };
     private int score;
+    private int len;
 
     // Constructors
 
 
     // Methods
-    // public override int CalculateScore(int numGuesses, List<string> letters)
-    // {
-    //     // calculate the score by multiplying the number of guesses by the length of the word
-    //     return numGuesses * 2;
-    // }
-    public override int CalculateScore(int numGuesses, List<string> letters)
-    // Scrabble Score for the word
+    public override int CalculateScore(int numGuesses, List<string> letters, string word)
     {
-        score = 0;
-        foreach (string c in letters)
+        len = word.Length;
+        if (len <= 7)
         {
-            string letter = c.ToString().ToLower();
-            if (scrabble.ContainsKey(letter))
-            {
-                score += scrabble[letter];
-            }
+            score = numGuesses * 2;
         }
-        // Console.WriteLine("The score for the word '{0}' is {1}.", letters, score);
+        else if( len > 7 & len <= 9)
+        {
+            score = numGuesses * 3;
+        }
+        else {
+            score = numGuesses * 4;
+        }
         return score;
     }
     public override void ShowScore()
     {
-        Console.WriteLine($"Your scrabble word score: {score} ");
+        Console.WriteLine($"Your complex word score: {score} ");
     }
 
 

@@ -7,10 +7,9 @@ public class MainMenu : Menu
              Main Menu Options
 ===========================================
 Please select one of the following options:
-1. Play Game - Untimed
-2. Play Game - Timed
-3. How to Play
-4. Quit
+1. Play Game
+2. How to Play
+3. Quit
 ===========================================
 Select an option from the menu:  ";
 
@@ -41,7 +40,7 @@ Select an option from the menu:  ";
         // Print welcome message
         PrintWelcome();
 
-        while (_action != 4)
+        while (_action != 3)
         // switch case for main menu
         {
             // Ask for user input (1-6)
@@ -53,17 +52,17 @@ Select an option from the menu:  ";
                     Console.Clear();  // This will clear the console
                     gameMenu.MenuChoice();
                     break;
+                // case 2:
+                //     // Play Game - Timed
+                //     Console.Clear();  // This will clear the console
+                //     gameMenu.MenuChoice();
+                //     break;
                 case 2:
-                    // Play Game - Timed
-                    Console.Clear();  // This will clear the console
-                    gameMenu.MenuChoice();
-                    break;
-                case 3:
                     // How to Play
                     HowToPlay info = new HowToPlay();
                     info.GetInstructions();
                     break;
-                case 4:
+                case 3:
                     // Quite
                     PrintGoodbye();
                     break;

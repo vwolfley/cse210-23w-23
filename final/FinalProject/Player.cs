@@ -12,6 +12,7 @@ public class Player
     public List<string> lettersGuessed { get; set; }
     public List<string> wrongGuessList { get; set; }
     public List<string> rightGuessList { get; set; }
+    public List<string> emptyList { get; set; }
     public string guesses { get; set; }
     public string wrongGuesses { get; set; }
     public int wrongGuessCount;
@@ -27,6 +28,7 @@ public class Player
         lettersGuessed = new List<string>();
         wrongGuessList = new List<string>();
         rightGuessList = new List<string>();
+        emptyList = new List<string>();
         guesses = string.Empty;
         wrongGuesses = string.Empty;
         wrongGuessCount = 0;

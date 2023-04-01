@@ -1,50 +1,49 @@
 using System;
 using System.Threading;
 
-public class ScoreTimed
+public class ScoreTimed : ScoringRules
 {
     // Attributes
-    private Timer _timer = null;
-    private bool _status;
+    private int score;
 
     // Constructors
-    // public TimedScore(int points) : base(points)
-    // {
-    //     _status = false;
-    // }
-    // public TimedScore(int points, bool status) : base(points)
-    // {
-    //     _status = status;
-    // }
-    public Boolean Finished()
-    {
-        return _status;
-    }
+
 
     // Methods
-    public void ScoreCorrectWord()
-    // You can score up to 10 points for each correct word. 
+    public override int CalculateScore(int numGuesses, List<string> letters, string word)
     {
+        int totalScore = 0;
+        // int numGuesses = 0;
+        // Stopwatch timer = new Stopwatch();
+        // timer.Start();
 
-    }
-    public void BonusScore()
-    // You can score CorrectScoreWord x 2 for each correct word. 
-    {
+        // while (timer.Elapsed < TimeSpan.FromMinutes(2) && words.Count > 0)
+        // {
+        //     Console.Write("Enter your guess: ");
+        //     string guess = Console.ReadLine();
 
-    }
+        //     if (words.Contains(guess))
+        //     {
+        //         int score = scoringRules.CalculateScore(numGuesses, guess);
+        //         totalScore += score;
+        //         numGuesses++;
 
-    private static void StartTimer()
-    {
-        // Create a Timer object that knows to call our TimerCallback
-        // method once every 2000 milliseconds.
-        // _timer = new Timer(TimerCallback, null, 0, 2000);
-        // Wait for the user to hit <Enter>
-        Console.ReadLine();
+        //         Console.WriteLine($"Correct! You scored {score} points.");
+        //         words.Remove(guess);
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("Incorrect! Try again.");
+        //     }
+        // }
+
+        // timer.Stop();
+        // Console.WriteLine($"Time's up! You guessed {numGuesses} words and scored {totalScore} points.");
+        return totalScore;
     }
-    private static void TimerCallback(Object o)
+    public override void ShowScore()
     {
-        // Display the date/time when this method got called.
-        Console.WriteLine("In TimerCallback: " + DateTime.Now);
+        Console.WriteLine($"Your simple word score: {score} ");
     }
 
 

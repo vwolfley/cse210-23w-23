@@ -10,7 +10,7 @@ public class ScoreSimple : ScoringRules
 
 
     // Methods
-    public override int CalculateScore(int numGuesses, List<string> letters)
+    public override int CalculateScore(int numGuesses, List<string> letters, string word)
     {
         score = numGuesses;
         return score;

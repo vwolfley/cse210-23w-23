@@ -13,9 +13,9 @@ public class ScoreBoard
 
 
     // Methods
-    public void DisplayScore(int numGuesses, List<string> letters)
+    public void DisplayScore(int numGuesses, List<string> letters, string word)
     {
-        int score = scoringRules.CalculateScore(numGuesses, letters);
+        int score = scoringRules.CalculateScore(numGuesses, letters, word);
         // Console.WriteLine($"Your Score: {score}");
         scoringRules.ShowScore();
 
